@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<project name="Rti1516Impl.RPR2D17" default="build">
+    <target name="build">
+        <echo message="Build Directory is ${project::get-base-directory()}/${build.dir}" />
+        <mkdir dir="${project::get-base-directory()}/${build.dir}" />
+        <csc target="library" debug="${build.debug}" unsafe="true" doc="${project::get-base-directory()}/${build.dir}/../../docs/Rti1516Impl.RPR2D17.xml" output="${project::get-base-directory()}/${build.dir}/${project::get-name()}.dll">
+            <sources failonempty="true">
+                <include name="./BaseEntity.cs" />
+                <include name="./DamageStatusEnum32.cs" />
+                <include name="./DeadReckoningAlgorithmEnum8.cs" />
+                <include name="./EntityIdentifierStruct.cs" />
+                <include name="./EntityTypeStruct.cs" />
+                <include name="./FederateIdentifierStruct.cs" />
+                <include name="./ForceIdentifier.cs" />
+                <include name="./OrientationStruct.cs" />
+                <include name="./PhysicalEntity.cs" />
+                <include name="./SpatialFPStruct.cs" />
+                <include name="./SpatialStaticStruct.cs" />
+                <include name="./SpatialStruct.cs" />
+                <include name="./VelocityVectorStruct.cs" />
+                <include name="./WorldLocationStruct.cs" />
+                <include name="./Properties/AssemblyInfo.cs" />
+            </sources>
+            <references basedir="${project::get-base-directory()}">
+                <lib>
+                    <include name="${project::get-base-directory()}" />
+                </lib>
+                <include name="System.dll" />
+                <include name="System.Data.dll" />
+                <include name="System.Xml.dll" />
+                <include name="../../../libs/log4net.dll" />
+                <include name="../Rti1516/${build.dir}/Rti1516Impl.Rti1516.dll" />
+                <include name="../Sxta1516/${build.dir}/Rti1516Impl.Sxta1516.dll" />
+            </references>
+            <resources>
+            </resources>
+        </csc>
+    </target>
+    <target name="clean">
+        <delete dir="${bin.dir}" failonerror="false" />
+        <delete dir="${obj.dir}" failonerror="false" />
+    </target>
+    <target name="doc" description="Creates documentation.">
+        <property name="doc.target" value="" />
+        <if test="${platform::is-unix()}">
+            <property name="doc.target" value="Web" />
+        </if>
+        <ndoc failonerror="true" verbose="true">
+            <assemblies basedir="${project::get-base-directory()}/${build.dir}">
+                <include name="${project::get-name()}.dll" />
+            </assemblies>
+            <summaries basedir="${project::get-base-directory()}/${build.dir}">
+                <include name="${project::get-name()}.xml"/>
+            </summaries>
+            <referencepaths basedir="${project::get-base-directory()}">
+                <include name="${build.dir}" />
+            </referencepaths>
+            <documenters>
+                <documenter name="MSDN">
+                    <property name="OutputDirectory" value="${project::get-base-directory()}/${build.dir}/doc/" />
+                    <property name="OutputTarget" value="${doc.target}" />
+                    <property name="HtmlHelpName" value="${project::get-name()}" />
+                    <property name="IncludeFavorites" value="False" />
+                    <property name="Title" value="${project::get-name()} SDK Documentation" />
+                    <property name="SplitTOCs" value="False" />
+                    <property name="DefaulTOC" value="" />
+                    <property name="ShowVisualBasic" value="True" />
+                    <property name="AutoDocumentConstructors" value="True" />
+                    <property name="ShowMissingSummaries" value="${build.debug}" />
+                    <property name="ShowMissingRemarks" value="${build.debug}" />
+                    <property name="ShowMissingParams" value="${build.debug}" />
+                    <property name="ShowMissingReturns" value="${build.debug}" />
+                    <property name="ShowMissingValues" value="${build.debug}" />
+                    <property name="DocumentInternals" value="False" />
+                    <property name="DocumentPrivates" value="False" />
+                    <property name="DocumentProtected" value="True" />
+                    <property name="DocumentEmptyNamespaces" value="${build.debug}" />
+                    <property name="IncludeAssemblyVersion" value="True" />
+                </documenter>
+            </documenters>
+        </ndoc>
+    </target>
+</project>

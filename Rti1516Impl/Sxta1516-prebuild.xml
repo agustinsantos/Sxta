@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id$ -->
+<Prebuild version="1.6" xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.6.xsd">
+	<Solution name="Rti1516Impl" path="src">
+		<Configuration name="Debug">
+			<Options>
+				<CompilerDefines>TRACE;DEBUG</CompilerDefines>
+				<OptimizeCode>false</OptimizeCode>
+				<CheckUnderflowOverflow>false</CheckUnderflowOverflow>
+				<AllowUnsafe>false</AllowUnsafe>
+				<WarningLevel>4</WarningLevel>
+				<WarningsAsErrors>false</WarningsAsErrors>
+				<!-- SuppressWarnings>1591;219;1573;1572;168</SuppressWarnings-->
+			        <OutputPath>../../../build/Debug/</OutputPath>
+				<DebugInformation>true</DebugInformation>
+				<RegisterComInterop>false</RegisterComInterop>
+				<IncrementalBuild>true</IncrementalBuild>
+				<BaseAddress>285212672</BaseAddress>
+				<FileAlignment>4096</FileAlignment>
+				<NoStdLib>false</NoStdLib>
+				<!--XmlDocFile>Docs.xml</XmlDocFile-->
+			</Options>
+		</Configuration>
+		<Configuration name="AutomatedDebug">
+			<Options>
+				<CompilerDefines>TRACE;DEBUG</CompilerDefines>
+				<OptimizeCode>false</OptimizeCode>
+				<CheckUnderflowOverflow>false</CheckUnderflowOverflow>
+				<AllowUnsafe>false</AllowUnsafe>
+				<WarningLevel>4</WarningLevel>
+				<WarningsAsErrors>false</WarningsAsErrors>
+				<!--SuppressWarnings>1591;219;1573;1572;168</SuppressWarnings-->
+			        <OutputPath>../../../build/AutomatedDebug/</OutputPath>
+				<DebugInformation>true</DebugInformation>
+				<RegisterComInterop>false</RegisterComInterop>
+				<IncrementalBuild>true</IncrementalBuild>
+				<BaseAddress>285212672</BaseAddress>
+				<FileAlignment>4096</FileAlignment>
+				<NoStdLib>false</NoStdLib>
+				<XmlDocFile>Docs.xml</XmlDocFile>
+			</Options>
+		</Configuration>
+		<Configuration name="Release">
+			<Options>
+				<CompilerDefines>TRACE</CompilerDefines>
+				<OptimizeCode>true</OptimizeCode>
+				<CheckUnderflowOverflow>false</CheckUnderflowOverflow>
+				<AllowUnsafe>false</AllowUnsafe>
+				<WarningLevel>4</WarningLevel>
+				<WarningsAsErrors>false</WarningsAsErrors>
+				<!--SuppressWarnings>1591;219;1573;1572;168</SuppressWarnings-->
+				<OutputPath>../../../build/Release/</OutputPath>
+				<DebugInformation>false</DebugInformation>
+				<RegisterComInterop>false</RegisterComInterop>
+				<IncrementalBuild>true</IncrementalBuild>
+				<BaseAddress>285212672</BaseAddress>
+				<FileAlignment>4096</FileAlignment>
+				<NoStdLib>false</NoStdLib>
+				<!--XmlDocFile>Docs.xml</XmlDocFile-->				
+			</Options>
+		</Configuration>
+
+		<Project name="Rti1516Impl.Rti1516" path="Rti1516" type="Library" assemblyName="Rti1516" rootNamespace="Hla.Rti1516">
+			<Configuration name="Debug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Debug/Rti1516</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Rti1516.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="AutomatedDebug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/AutomatedDebug/Rti1516</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Rti1516.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="Release">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Release/Rti1516</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Rti1516.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<ReferencePath>../../../libs</ReferencePath>
+			<Reference name="System"/>
+			<Reference name="System.Data"/> 
+			<Reference name="System.Xml"/>
+			<!--Reference name="log4net"/-->
+			<Files>
+				<Match pattern="*.cs" recurse="true"/>
+			</Files>
+		</Project>
+		<Project name="Rti1516Impl.Sxta1516" path="Sxta1516" type="Library" assemblyName="Sxta1516" rootNamespace="Sxta1516">
+			<Configuration name="Debug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Debug/Sxta1516</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Sxta1516.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="AutomatedDebug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/AutomatedDebug/Sxta1516</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Sxta1516.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="Release">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Release/Sxta1516</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Sxta1516.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<ReferencePath>../../../libs</ReferencePath>
+			<Reference name="System"/>
+			<Reference name="System.Data"/> 
+			<Reference name="System.Xml"/>
+			<Reference name="log4net"/>
+			<Reference name="nini"/>
+			<Reference name="Rti1516Impl.Rti1516"/>
+			<Files>
+				<Match pattern="*.cs" recurse="true"/>
+				<Match pattern="Resources/*.xsd" buildAction="EmbeddedResource" recurse="true"/>
+				<Match pattern="Resources/*.xml" buildAction="EmbeddedResource" recurse="true"/>
+				<Match pattern="Resources/*.dtd" buildAction="EmbeddedResource" recurse="true"/>
+				<Match pattern="SxtaConfig.xml" buildAction="EmbeddedResource" recurse="true"/>
+			</Files>
+		</Project>
+		<Project name="Rti1516Impl.Sxta1516Tests" path="Sxta1516Tests" type="Library" assemblyName="Sxta1516Tests" rootNamespace="Sxta1516.Sxta1516Tests">
+			<Configuration name="Debug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Debug/Sxta1516Tests</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Sxta1516Tests.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="AutomatedDebug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/AutomatedDebug/Sxta1516Tests</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Sxta1516Tests.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="Release">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Release/Sxta1516Tests</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Sxta1516Tests.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<ReferencePath>../../../libs</ReferencePath>
+			<Reference name="System"/>
+			<Reference name="System.Data"/> 
+			<Reference name="System.Xml"/>
+			<Reference name="log4net"/>
+			<Reference name="nini"/>
+			<Reference name="nunit.core"/>
+			<Reference name="nunit.framework"/>
+			<Reference name="Rti1516Impl.Rti1516"/>
+			<Reference name="Rti1516Impl.Sxta1516"/>
+			<Files>
+				<Match pattern="*.cs" recurse="true"/>
+			</Files>
+		</Project>
+		<Project name="Rti1516Impl.Sxta1516TestServer" path="Sxta1516TestServer" type="Exe" assemblyName="Sxta1516TestServer" rootNamespace="Sxta1516.Sxta1516TestServer">
+			<Configuration name="Debug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Debug/Sxta1516TestServer</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Sxta1516TestServer.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="AutomatedDebug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/AutomatedDebug/Sxta1516TestServer</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Sxta1516TestServer.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="Release">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Release/Sxta1516TestServer</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Sxta1516TestServer.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<ReferencePath>../../../libs</ReferencePath>
+			<Reference name="System"/>
+			<Reference name="System.Data"/> 
+			<Reference name="System.Xml"/>
+			<Reference name="log4net"/>
+			<Reference name="nini"/>
+			<Reference name="Rti1516Impl.Rti1516"/>
+			<Reference name="Rti1516Impl.Sxta1516"/>
+			<Files>
+				<Match pattern="*.cs" recurse="true"/>
+			</Files>
+		</Project>
+		<Project name="Rti1516Impl.Sxta1516TestClient" path="Sxta1516TestClient" type="Exe" assemblyName="Sxta1516TestClient" rootNamespace="Sxta1516.Sxta1516TestClient">
+			<Configuration name="Debug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Debug/Sxta1516TestClient</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Sxta1516TestClient.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="AutomatedDebug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/AutomatedDebug/Sxta1516TestClient</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Sxta1516TestClient.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="Release">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Release/Sxta1516TestClient</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.Sxta1516TestClient.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<ReferencePath>../../../libs</ReferencePath>
+			<Reference name="System"/>
+			<Reference name="System.Data"/> 
+			<Reference name="System.Xml"/>
+			<Reference name="log4net"/>
+			<Reference name="nini"/>
+			<Reference name="Rti1516Impl.Rti1516"/>
+			<Reference name="Rti1516Impl.Sxta1516"/>
+			<Files>
+				<Match pattern="*.cs" recurse="true"/>
+			</Files>
+		</Project>
+		<Project name="Rti1516Impl.DynamicCompiler" path="DynamicCompiler" type="Library" assemblyName="DynamicCompiler" rootNamespace="Sxta1516.DynamicCompiler.">
+			<Configuration name="Debug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Debug/RPR2D17</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.DynamicCompiler.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="AutomatedDebug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/AutomatedDebug/RPR2D17</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.DynamicCompiler.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="Release">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Release/Rti1516</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.DynamicCompiler.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<ReferencePath>../../../libs</ReferencePath>
+			<Reference name="System"/>
+			<Reference name="System.Data"/> 
+			<Reference name="System.Xml"/>
+			<Reference name="log4net"/>
+			<Reference name="Rti1516Impl.Rti1516"/>
+			<Reference name="Rti1516Impl.Sxta1516"/>
+			<Reference name="Rti1516Impl.ProxyCompiler"/>
+			<Files>
+				<Match pattern="*.cs" recurse="true"/>
+			</Files>
+		</Project>
+		<Project name="Rti1516Impl.RPR2D17" path="RPR2D17" type="Library" assemblyName="RPR2D17" rootNamespace="Sxta.RPR2D17">
+			<Configuration name="Debug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Debug/RPR2D17</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.RPR2D17.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="AutomatedDebug">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/AutomatedDebug/RPR2D17</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.RPR2D17.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<Configuration name="Release">
+				<Options>
+					<AllowUnsafe>false</AllowUnsafe>
+					<OutputPath>../../../build/Release/Rti1516</OutputPath>
+					<XmlDocFile>../../../docs/Rti1516Impl.RPR2D17.xml</XmlDocFile>
+				</Options>
+			</Configuration>
+			<ReferencePath>../../../libs</ReferencePath>
+			<Reference name="System"/>
+			<Reference name="System.Data"/> 
+			<Reference name="System.Xml"/>
+			<Reference name="log4net"/>
+			<Reference name="Rti1516Impl.Rti1516"/>
+			<Reference name="Rti1516Impl.Sxta1516"/>
+			<Files>
+				<Match pattern="*.cs" recurse="true"/>
+				<Match pattern="Resources/*.xsd" buildAction="EmbeddedResource" recurse="true"/>
+				<Match pattern="Resources/*.xml" buildAction="EmbeddedResource" recurse="true"/>
+				<Match pattern="Resources/*.dtd" buildAction="EmbeddedResource" recurse="true"/>
+			</Files>
+		</Project>
+	</Solution>
+</Prebuild>
+
+	

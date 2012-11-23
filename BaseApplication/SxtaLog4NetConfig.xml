@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<log4net>
+	<!-- A1 is set to be a TraceeAppender -->
+	<appender name="AppenderFull" type="log4net.Appender.TraceAppender">
+		<ImmediateFlush value="false" />
+
+		<!-- A1 uses PatternLayout -->
+		<layout type="log4net.Layout.PatternLayout">
+			<conversionPattern value="%-9.9level (%-10.10thread@%-7.7timestamp) => %message%newline" />
+			<!--conversionPattern value="%5level (%file:%line;%thread) @%-7timestamp :> %message%newline" /-->
+		</layout>
+	</appender>
+
+	<appender name="AppenderShort" type="log4net.Appender.TraceAppender">
+		<ImmediateFlush value="false" />
+
+		<!-- A1 uses PatternLayout -->
+		<layout type="log4net.Layout.PatternLayout">
+			<conversionPattern value="%message%newline" />
+			<!--conversionPattern value="%5level (%file:%line;%thread) @%-7timestamp :> %message%newline" /-->
+		</layout>
+	</appender>
+
+	<!-- Set root logger level to INFO and its only appender to AppenderShort -->
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="AppenderShort" />
+	</root>
+
+	<!-- Print only messages of level INFO or above in the package ChannelsTests -->
+	<!--logger name="ChannelsTests" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="AppenderShort" />
+	</logger-->
+
+	<!--logger name="Sxta.Rti1516" additivity="false">
+		<level value="ALL" />
+		<appender-ref ref="AppenderFull" />
+	</logger-->
+	
+	<!-- Print only messages of level INFO or above in the package Sxta.Rti1516.Channels -->
+	<!--logger name="Sxta.Rti1516.Channels" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="AppenderShort" />
+	</logger-->
+	
+	<!-- Print only messages of level DEBUG or above in the package Sxta.Rti1516.BoostrapProtocol -->
+	<!--logger name="Sxta.Rti1516.BoostrapProtocol" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="AppenderShort" />
+	</logger-->
+
+  <!--logger name="Sxta.Rti1516.Reflection.HLAobjectRoot" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="AppenderFull" />
+	</logger-->
+
+  <!-- INTERESANTES ANGEL -->
+  
+  <!--<logger name="Sxta.Rti1516.Ambassadors" additivity="false">
+    <level value="DEBUG" />
+    <appender-ref ref="AppenderFull" />
+  </logger>-->
+
+  <!-- -->
+  <logger name="Sxta.Rti1516.Management" additivity="false">
+    <level value="DEBUG" />
+    <appender-ref ref="AppenderFull" />
+  </logger>
+
+  <logger name="Sxta.Rti1516.LowLevelManagement.FederationLowLevelManagementObjectModelInteractionListener" additivity="false">
+    <level value="DEBUG" />
+    <appender-ref ref="AppenderShort" />
+  </logger>
+
+  <!--
+  <logger name="Sxta.Rti1516.Lrc.Lrc" additivity="false">
+    <level value="DEBUG" />
+    <appender-ref ref="AppenderShort" />
+  </logger>
+  -->
+
+  <!-- 
+	<logger name="Sxta.Rti1516.ObjectManagement.ObjectManager" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="AppenderFull" />
+	</logger>
+  -->
+
+  <!-- TimeManagementObjectModelInteractionListener -->
+  <logger name="Sxta.Rti1516.TimeManagementSample" additivity="false">
+    <level value="DEBUG" />
+    <appender-ref ref="AppenderFull" />
+  </logger>
+  
+  
+  <!-- -->
+  <logger name="Sxta.Rti1516.TimeManagementSample.TimeManagementSimulation" additivity="false">
+    <level value="DEBUG" />
+    <appender-ref ref="AppenderFull" />
+  </logger>
+
+
+</log4net>

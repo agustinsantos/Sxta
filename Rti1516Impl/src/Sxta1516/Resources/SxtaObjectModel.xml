@@ -1,0 +1,72 @@
+﻿<?xml version="1.0"?>
+
+<objectModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="HLA.xsd"
+             DTDversion="1516.2"
+             name="Sxta Object Model"
+             type="FOM"
+             version="1.0">
+
+	<objects>
+
+		
+		<objectClass name="HLAfederate"
+                     sharing="Publish"
+                     semantics="This object class shall contain RTI state
+                                variables relating to a joined federate.
+                                The RTI shall publish it and shall register
+                                one object instance for each joined federate
+                                in a federation. Dynamic attributes that
+                                shall be contained in an object instance
+                                shall be updated periodically, where the
+                                period should be determined by an interaction
+                                of the class HLAmanager. HLAfederate.HLAadjust.HLAsetTiming.
+                                If this value is never set or is set to zero,
+                                no periodic up-date shall be performed by
+                                the RTI.">
+		
+				
+			<objectClass name = "Sxtafederate"
+						 sharing = "Publish"
+						 semantics = "None">
+
+				<attribute name="HLAisJoined"
+						   dataType="HLAboolean"
+						   updateType="Static"
+						   updateCondition="NA"
+						   ownership="NoTransfer"
+						   sharing="Publish"
+						   dimensions="Federate"
+						   transportation="HLAreliable"
+						   order="Receive"
+						   semantics="None"/>
+				
+				<attribute name="HLAfederationNameJoined"
+						   dataType="HLAunicodeString"
+						   updateType="Static"
+						   updateCondition="NA"
+						   ownership="NoTransfer"
+						   sharing="Publish"
+						   dimensions="Federate"
+						   transportation="HLAreliable"
+						   order="Receive"
+						   semantics="Federation name that the federate joined."/>
+
+				<attribute name="HLApendingTime"
+						   dataType="HLAlogicalTime"
+                           updateType="Periodic"
+                           updateCondition="HLAsetTiming.HLAreportPeriod"
+                           ownership="NoTransfer"
+                           sharing="Publish"
+                           dimensions="Federate"
+                           transportation="HLAreliable"
+                           order="Receive"
+                           semantics="Joined federate's pending time."/>
+
+			</objectClass>
+
+		</objectClass>
+		
+	</objects>
+	
+</objectModel>

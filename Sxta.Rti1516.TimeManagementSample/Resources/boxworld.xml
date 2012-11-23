@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE SokobanLevels SYSTEM "SokobanLev.dtd">
+<SokobanLevels>
+  <Title>Boxworld</Title>
+  <Description>The levels from the BoxWorld game</Description>
+  <Email></Email>
+  <Url></Url>
+  <LevelCollection Copyright="Ángel" MaxWidth="16" MaxHeight="16">
+    <Level Id="Primero" Width="16" Height="16">
+      <L>################</L>
+      <L>#              #</L>
+      <L>#              #</L>
+      <L>#              #</L>
+      <L>#              #</L>
+      <L>#              #</L>
+      <L>#              #</L>
+      <L>#              #</L>
+      <L>#              #</L>
+      <L>#              #</L>
+      <L>#              #</L>
+      <L>#              #</L>
+      <L>#              #</L>
+      <L>#              #</L>
+      <L>#              #</L>
+      <L>################</L>
+    </Level>
+  </LevelCollection>
+</SokobanLevels>

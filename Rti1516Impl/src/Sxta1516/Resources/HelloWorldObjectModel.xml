@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+
+<objectModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="HLA.xsd"
+             DTDversion="1516.2"
+             name="Hello World Object Model"
+             type="FOM"
+             version="1.0">
+
+	<objects>
+
+		<objectClass name="HLAobjectRoot"
+                     sharing="Neither">
+
+			<attribute name="HLAprivilegeToDeleteObject"
+                       dataType="NA"
+                       updateType="NA"
+                       updateCondition="NA"
+                       ownership="NoTransfer"
+                       sharing="Neither"
+                       dimensions="NA"
+                       transportation="HLAreliable"
+                       order="TimeStamp"/>
+
+			<objectClass name="Country"
+                         sharing="PublishSubscribe"
+                         semantics="A country.">
+
+				<attribute name="Name"
+                           dataType="HLAunicodeString"
+                           updateType="Static"
+                           updateCondition="NA"
+                           ownership="NoTransfer"
+                           sharing="PublishSubscribe"
+                           dimensions="NA"
+                           transportation="HLAreliable"
+                           order="Receive"
+                           semantics="The name of the country."/>
+
+				<attribute name="Population"
+                           dataType="Population"
+                           updateType="Periodic"
+                           updateCondition="NA"
+                           ownership="NoTransfer"
+                           sharing="PublishSubscribe"
+                           dimensions="NA"
+                           transportation="HLAbestEffort"
+                           order="Receive"
+                           semantics="The population of the country."/>
+
+				<attribute name="Position"
+                           dataType="Vector3FloatStruct"
+                           updateType="Static"
+                           updateCondition="NA"
+                           ownership="NoTransfer"
+                           sharing="PublishSubscribe"
+                           dimensions="NA"
+                           transportation="HLAbestEffort"
+                           order="Receive"
+                           semantics="The position vector of the country."/>
+
+			</objectClass>
+			
+		</objectClass>
+
+	</objects>
+
+	<interactions>
+
+		<interactionClass name="HLAinteractionRoot"
+                          sharing="Neither"
+                          dimensions="NA"
+                          transportation="HLAreliable"
+                          order="Receive">
+
+			<interactionClass name="Communication"
+                              sharing="PublishSubscribe"
+                              dimensions="NA"
+                              transportation="HLAreliable"
+                              order="Receive"
+                              semantics="A generic message.">
+
+				<parameter name="message"
+                           dataType="HLAunicodeString"
+                           semantics="The contents of the message."/>
+
+			</interactionClass>
+
+		</interactionClass>
+
+	</interactions>
+
+	<transportations>
+
+		<transportation name="HLAreliable"
+                        description="Provide reliable delivery of data in the
+                                     sense that TCP/IP delivers its data reliably."/>
+
+		<transportation name="HLAbestEffort"
+                        description="Make an effort to deliver data in the sense
+                                     that UDP provides best-effort delivery."/>
+
+	</transportations>
+
+	<dataTypes>
+
+		<basicDataRepresentations>
+			<basicData name="HLAfloat32BE"
+					   size="32"
+					   interpretation="Single-precision floating point number"
+					   endian="Big"
+					   encoding="32-bit IEEE normalized single-precision format. See IEEE Std 754-1985"/>
+
+			<basicData name="HLAfloat64BE"
+                       size="64"
+                       interpretation="Double-precision floating point number"
+                       endian="Big"
+                       encoding="64-bit IEEE normalized double-precision format. See IEEE Std 754-1985."/>
+
+			<basicData name="HLAoctetPairBE"
+                       size="16"
+                       interpretation="16-bit value"
+                       endian="Big"
+                       encoding="Assumed to be portable among hardware devices."/>
+
+		</basicDataRepresentations>
+
+		<simpleDataTypes>
+
+			<simpleData name="HLAunicodeChar"
+                        representation="HLAoctetPairBE"
+                        units="NA"
+                        resolution="NA"
+                        accuracy="NA"
+                        semantics="Unicode UTF-16 character (see The Unicode Standard, Version 3.0)."/>
+
+			<simpleData name="Population"
+                        representation="HLAfloat64BE"
+                        units="millions of people"/>
+			
+			<simpleData name="LengthDistance"
+                        representation="HLAfloat32BE"
+                        units="meters"/>
+
+
+		</simpleDataTypes>
+
+		<arrayDataTypes>
+
+			<arrayData name="HLAunicodeString"
+                       dataType="HLAunicodeChar"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="Unicode string representation."/>
+
+		</arrayDataTypes>
+
+		<fixedRecordDataTypes>
+
+			<fixedRecordData name="Vector3FloatStruct" 
+					semantics="A vector of three floats used for position or velocity">
+				<field name="XComponent" dataType="LengthDistance" semantics="Component along the X axis" />
+				<field name="YComponent" dataType="HLAfloat32BE" semantics="Component along the Y axis" />
+				<field name="ZComponent" dataType="HLAfloat32BE" semantics="Component along the Z axis" />
+			</fixedRecordData>
+
+		</fixedRecordDataTypes>
+
+	</dataTypes>
+
+</objectModel>

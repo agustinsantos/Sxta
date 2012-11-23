@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Nini>
+	<Section Name="PeerInfo">
+		<Key Name="PeerName" Value="PeerTest1" />
+		<Key Name="PeerDescription" Value="A peer for testing" />
+	</Section>
+	<Section Name="Channels">
+		<Key Name="DefaultAddr" Value="localhost" />
+		<Key Name="TcpPort" Value="7777" />
+		<Key Name="UdpPort" Value="1234" />
+	</Section>
+	<Section Name="RendezVous">
+	</Section>
+	<Section Name="Log4Net">
+		<Key Name="ConfigurationSource" Value="SxtaLog4NetConfig.xml" />
+	</Section>
+</Nini>

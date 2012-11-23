@@ -1,0 +1,217 @@
+<?xml version="1.0" ?>
+<project name="Rti1516Impl.Rti1516" default="build">
+    <target name="build">
+        <echo message="Build Directory is ${project::get-base-directory()}/${build.dir}" />
+        <mkdir dir="${project::get-base-directory()}/${build.dir}" />
+        <csc target="library" debug="${build.debug}" unsafe="true" doc="${project::get-base-directory()}/${build.dir}/../../docs/Rti1516Impl.Rti1516.xml" output="${project::get-base-directory()}/${build.dir}/${project::get-name()}.dll">
+            <sources failonempty="true">
+                <include name="./API/AsynchronousDeliveryAlreadyDisabled.cs" />
+                <include name="./API/AsynchronousDeliveryAlreadyEnabled.cs" />
+                <include name="./API/AttributeAcquisitionWasNotCanceled.cs" />
+                <include name="./API/AttributeAcquisitionWasNotRequested.cs" />
+                <include name="./API/AttributeAlreadyBeingAcquired.cs" />
+                <include name="./API/AttributeAlreadyBeingDivested.cs" />
+                <include name="./API/AttributeAlreadyOwned.cs" />
+                <include name="./API/AttributeDivestitureWasNotRequested.cs" />
+                <include name="./API/AttributeNotDefined.cs" />
+                <include name="./API/AttributeNotOwned.cs" />
+                <include name="./API/AttributeNotPublished.cs" />
+                <include name="./API/AttributeNotRecognized.cs" />
+                <include name="./API/AttributeNotSubscribed.cs" />
+                <include name="./API/AttributeRegionAssociation.cs" />
+                <include name="./API/AttributeRelevanceAdvisorySwitchIsOff.cs" />
+                <include name="./API/AttributeRelevanceAdvisorySwitchIsOn.cs" />
+                <include name="./API/AttributeScopeAdvisorySwitchIsOff.cs" />
+                <include name="./API/AttributeScopeAdvisorySwitchIsOn.cs" />
+                <include name="./API/CouldNotDecode.cs" />
+                <include name="./API/CouldNotDiscover.cs" />
+                <include name="./API/CouldNotInitiateRestore.cs" />
+                <include name="./API/CouldNotOpenFDD.cs" />
+                <include name="./API/DeletePrivilegeNotHeld.cs" />
+                <include name="./API/ErrorReadingFDD.cs" />
+                <include name="./API/FederateAlreadyExecutionMember.cs" />
+                <include name="./API/FederateHandleRestoreStatusPair.cs" />
+                <include name="./API/FederateHandleSaveStatusPair.cs" />
+                <include name="./API/FederateHasNotBegunSave.cs" />
+                <include name="./API/FederateInternalError.cs" />
+                <include name="./API/FederateNotExecutionMember.cs" />
+                <include name="./API/FederateOwnsAttributes.cs" />
+                <include name="./API/FederatesCurrentlyJoined.cs" />
+                <include name="./API/FederateServiceInvocationsAreBeingReportedViaMOM.cs" />
+                <include name="./API/FederateUnableToUseTime.cs" />
+                <include name="./API/FederationExecutionAlreadyExists.cs" />
+                <include name="./API/FederationExecutionDoesNotExist.cs" />
+                <include name="./API/IAttributeHandle.cs" />
+                <include name="./API/IAttributeHandleFactory.cs" />
+                <include name="./API/IAttributeHandleSet.cs" />
+                <include name="./API/IAttributeHandleSetFactory.cs" />
+                <include name="./API/IAttributeHandleValueMap.cs" />
+                <include name="./API/IAttributeHandleValueMapFactory.cs" />
+                <include name="./API/IAttributeSetRegionSetPairList.cs" />
+                <include name="./API/IAttributeSetRegionSetPairListFactory.cs" />
+                <include name="./API/IDimensionHandle.cs" />
+                <include name="./API/IDimensionHandleFactory.cs" />
+                <include name="./API/IDimensionHandleSet.cs" />
+                <include name="./API/IDimensionHandleSetFactory.cs" />
+                <include name="./API/IFederateAmbassador.cs" />
+                <include name="./API/IFederateHandle.cs" />
+                <include name="./API/IFederateHandleFactory.cs" />
+                <include name="./API/IFederateHandleSet.cs" />
+                <include name="./API/IFederateHandleSetFactory.cs" />
+                <include name="./API/IInteractionClassHandle.cs" />
+                <include name="./API/IInteractionClassHandleFactory.cs" />
+                <include name="./API/IllegalName.cs" />
+                <include name="./API/IllegalTimeArithmetic.cs" />
+                <include name="./API/ILogicalTime.cs" />
+                <include name="./API/ILogicalTimeFactory.cs" />
+                <include name="./API/ILogicalTimeInterval.cs" />
+                <include name="./API/ILogicalTimeIntervalFactory.cs" />
+                <include name="./API/IMessageRetractionHandle.cs" />
+                <include name="./API/InteractionClassNotDefined.cs" />
+                <include name="./API/InteractionClassNotPublished.cs" />
+                <include name="./API/InteractionClassNotRecognized.cs" />
+                <include name="./API/InteractionClassNotSubscribed.cs" />
+                <include name="./API/InteractionParameterNotDefined.cs" />
+                <include name="./API/InteractionParameterNotRecognized.cs" />
+                <include name="./API/InteractionRelevanceAdvisorySwitchIsOff.cs" />
+                <include name="./API/InteractionRelevanceAdvisorySwitchIsOn.cs" />
+                <include name="./API/InTimeAdvancingState.cs" />
+                <include name="./API/InvalidAttributeHandle.cs" />
+                <include name="./API/InvalidDimensionHandle.cs" />
+                <include name="./API/InvalidFederateHandle.cs" />
+                <include name="./API/InvalidInteractionClassHandle.cs" />
+                <include name="./API/InvalidLogicalTime.cs" />
+                <include name="./API/InvalidLookahead.cs" />
+                <include name="./API/InvalidMessageRetractionHandle.cs" />
+                <include name="./API/InvalidObjectClassHandle.cs" />
+                <include name="./API/InvalidOrderName.cs" />
+                <include name="./API/InvalidOrderType.cs" />
+                <include name="./API/InvalidParameterHandle.cs" />
+                <include name="./API/InvalidRangeBound.cs" />
+                <include name="./API/InvalidRegion.cs" />
+                <include name="./API/InvalidRegionContext.cs" />
+                <include name="./API/InvalidTransportationName.cs" />
+                <include name="./API/InvalidTransportationType.cs" />
+                <include name="./API/IObjectClassHandle.cs" />
+                <include name="./API/IObjectClassHandleFactory.cs" />
+                <include name="./API/IObjectInstanceHandle.cs" />
+                <include name="./API/IObjectInstanceHandleFactory.cs" />
+                <include name="./API/IParameterHandle.cs" />
+                <include name="./API/IParameterHandleFactory.cs" />
+                <include name="./API/IParameterHandleValueMap.cs" />
+                <include name="./API/IRegionHandle.cs" />
+                <include name="./API/IRegionHandleSet.cs" />
+                <include name="./API/IRegionHandleSetFactory.cs" />
+                <include name="./API/IRTIambassador.cs" />
+                <include name="./API/JoinedFederateIsNotInTimeAdvancingState.cs" />
+                <include name="./API/LogicalTimeAlreadyPassed.cs" />
+                <include name="./API/MessageCanNoLongerBeRetracted.cs" />
+                <include name="./API/MessageRetractionReturn.cs" />
+                <include name="./API/MobileFederateServices.cs" />
+                <include name="./API/NameNotFound.cs" />
+                <include name="./API/NoRequestToEnableTimeConstrainedWasPending.cs" />
+                <include name="./API/NoRequestToEnableTimeRegulationWasPending.cs" />
+                <include name="./API/ObjectClassNotDefined.cs" />
+                <include name="./API/ObjectClassNotPublished.cs" />
+                <include name="./API/ObjectClassNotRecognized.cs" />
+                <include name="./API/ObjectClassRelevanceAdvisorySwitchIsOff.cs" />
+                <include name="./API/ObjectClassRelevanceAdvisorySwitchIsOn.cs" />
+                <include name="./API/ObjectInstanceNameInUse.cs" />
+                <include name="./API/ObjectInstanceNameNotReserved.cs" />
+                <include name="./API/ObjectInstanceNotKnown.cs" />
+                <include name="./API/OrderType.cs" />
+                <include name="./API/OwnershipAcquisitionPending.cs" />
+                <include name="./API/ParameterHandleValueMapFactory.cs" />
+                <include name="./API/RangeBounds.cs" />
+                <include name="./API/RegionDoesNotContainSpecifiedDimension.cs" />
+                <include name="./API/RegionInUseForUpdateOrSubscription.cs" />
+                <include name="./API/RegionNotCreatedByThisFederate.cs" />
+                <include name="./API/RegionNotKnown.cs" />
+                <include name="./API/RequestForTimeConstrainedPending.cs" />
+                <include name="./API/RequestForTimeRegulationPending.cs" />
+                <include name="./API/ResignAction.cs" />
+                <include name="./API/RestoreFailureReason.cs" />
+                <include name="./API/RestoreInProgress.cs" />
+                <include name="./API/RestoreNotInProgress.cs" />
+                <include name="./API/RestoreNotRequested.cs" />
+                <include name="./API/RestoreStatus.cs" />
+                <include name="./API/RTIexception.cs" />
+                <include name="./API/RTIinternalError.cs" />
+                <include name="./API/SaveFailureReason.cs" />
+                <include name="./API/SaveInProgress.cs" />
+                <include name="./API/SaveNotInitiated.cs" />
+                <include name="./API/SaveNotInProgress.cs" />
+                <include name="./API/SaveStatus.cs" />
+                <include name="./API/ServiceGroup.cs" />
+                <include name="./API/SpecifiedSaveLabelDoesNotExist.cs" />
+                <include name="./API/SynchronizationPointFailureReason.cs" />
+                <include name="./API/SynchronizationPointLabelNotAnnounced.cs" />
+                <include name="./API/SynchronizationSetMemberNotJoined.cs" />
+                <include name="./API/TimeConstrainedAlreadyEnabled.cs" />
+                <include name="./API/TimeConstrainedIsNotEnabled.cs" />
+                <include name="./API/timequeryreturn.cs" />
+                <include name="./API/TimeRegulationAlreadyEnabled.cs" />
+                <include name="./API/TimeRegulationIsNotEnabled.cs" />
+                <include name="./API/TransportationType.cs" />
+                <include name="./API/UnableToPerformSave.cs" />
+                <include name="./API/UnknownName.cs" />
+                <include name="./API/Extensions/IRTIambassadorEx.cs" />
+                <include name="./Properties/AssemblyInfo.cs" />
+            </sources>
+            <references basedir="${project::get-base-directory()}">
+                <lib>
+                    <include name="${project::get-base-directory()}" />
+                </lib>
+                <include name="System.dll" />
+                <include name="System.Data.dll" />
+                <include name="System.Xml.dll" />
+            </references>
+            <resources>
+            </resources>
+        </csc>
+    </target>
+    <target name="clean">
+        <delete dir="${bin.dir}" failonerror="false" />
+        <delete dir="${obj.dir}" failonerror="false" />
+    </target>
+    <target name="doc" description="Creates documentation.">
+        <property name="doc.target" value="" />
+        <if test="${platform::is-unix()}">
+            <property name="doc.target" value="Web" />
+        </if>
+        <ndoc failonerror="true" verbose="true">
+            <assemblies basedir="${project::get-base-directory()}/${build.dir}">
+                <include name="${project::get-name()}.dll" />
+            </assemblies>
+            <summaries basedir="${project::get-base-directory()}/${build.dir}">
+                <include name="${project::get-name()}.xml"/>
+            </summaries>
+            <referencepaths basedir="${project::get-base-directory()}">
+                <include name="${build.dir}" />
+            </referencepaths>
+            <documenters>
+                <documenter name="MSDN">
+                    <property name="OutputDirectory" value="${project::get-base-directory()}/${build.dir}/doc/" />
+                    <property name="OutputTarget" value="${doc.target}" />
+                    <property name="HtmlHelpName" value="${project::get-name()}" />
+                    <property name="IncludeFavorites" value="False" />
+                    <property name="Title" value="${project::get-name()} SDK Documentation" />
+                    <property name="SplitTOCs" value="False" />
+                    <property name="DefaulTOC" value="" />
+                    <property name="ShowVisualBasic" value="True" />
+                    <property name="AutoDocumentConstructors" value="True" />
+                    <property name="ShowMissingSummaries" value="${build.debug}" />
+                    <property name="ShowMissingRemarks" value="${build.debug}" />
+                    <property name="ShowMissingParams" value="${build.debug}" />
+                    <property name="ShowMissingReturns" value="${build.debug}" />
+                    <property name="ShowMissingValues" value="${build.debug}" />
+                    <property name="DocumentInternals" value="False" />
+                    <property name="DocumentPrivates" value="False" />
+                    <property name="DocumentProtected" value="True" />
+                    <property name="DocumentEmptyNamespaces" value="${build.debug}" />
+                    <property name="IncludeAssemblyVersion" value="True" />
+                </documenter>
+            </documenters>
+        </ndoc>
+    </target>
+</project>

@@ -1,0 +1,71 @@
+<Plugin name       = "Sxta.Rti1516.BoidSample"
+       author      = "Agustin Santos"
+       copyright   = "GPL"
+       url         = "http://www.sxta.net"
+       description = "A sample plugin with Military Simulation"
+       version     = "0.0.1">
+
+	<Runtime>
+		<Import assembly="MilitarySimulation.dll"/>
+	</Runtime>
+
+	<Extension path = "/Plugins">
+		<Module id = "MilitarySimulation1" class = "Sxta.Rti1516.MilitarySample.MilitarySimulation" Color="green">
+			<ObjectModel>
+				<FomModel From="File" Uri="Resources/MilitaryObjectModel.xml"/>
+				<FomModel From="Assembly"/>
+			</ObjectModel>
+			<Channels>
+				<TcpChannel Name="AChannelReliable" Address="localhost" Port="7777"/>
+				<UdpChannel Name="AChannelBestEffort" Address="localhost" Port="1234"/>
+				<MultiChannel Name="AChannelMulticast" Address="224.0.0.1" Port="8080"/>
+				<Mapping>
+					<Transport Name="HLAreliable" Use="AChannelReliable" />
+					<Transport Name="HLAbestEffort" Use="AChannelBestEffort" />
+					<Transport Name="Multicast" Use="AChannelMulticast" />
+				</Mapping>
+			</Channels>
+			<!--IncludeFile Url ="Resources/MilitaryScenario.xml"/-->
+			<MilitaryScenario>
+				<ForceStructure>
+					<ForceSides>
+						<ForceSide ForceSideName="Blue">
+							<ObjectHandle>1000</ObjectHandle>
+						</ForceSide>
+						<ForceSide ForceSideName="Red">
+							<ObjectHandle>2000</ObjectHandle>
+						</ForceSide>
+					</ForceSides>
+				</ForceStructure>
+				<TaskOrganizations>
+					<Units>
+						<Unit>
+							<ObjectHandle>1001</ObjectHandle>
+							<ForceRelation>1000</ForceRelation>
+						</Unit>
+						<Unit>
+							<ObjectHandle>1002</ObjectHandle>
+							<ForceRelation>1000</ForceRelation>
+						</Unit>
+						<Unit>
+							<ObjectHandle>1003</ObjectHandle>
+							<ForceRelation>1000</ForceRelation>
+						</Unit>
+						<Unit>
+							<ObjectHandle>2001</ObjectHandle>
+							<ForceRelation>2000</ForceRelation>
+						</Unit>
+						<Unit>
+							<ObjectHandle>2002</ObjectHandle>
+							<ForceRelation>2000</ForceRelation>
+						</Unit>
+						<Unit>
+							<ObjectHandle>2003</ObjectHandle>
+							<ForceRelation>2000</ForceRelation>
+						</Unit>
+					</Units>
+				</TaskOrganizations>
+			</MilitaryScenario>
+		</Module>
+	</Extension>
+</Plugin>

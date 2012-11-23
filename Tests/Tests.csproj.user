@@ -1,0 +1,20 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartProgram>
+    </StartProgram>
+    <StartWorkingDirectory>
+    </StartWorkingDirectory>
+    <StartArguments>
+    </StartArguments>
+    <StartAction>Project</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <StartProgram>C:\Archivos de programa\TestDriven.NET 2.0\ProcessInvocation.exe</StartProgram>
+    <StartWorkingDirectory>C:\Archivos de programa\TestDriven.NET 2.0</StartWorkingDirectory>
+    <StartArguments>/assemblyName:"TestDriven.TestRunner.Server, Version=2.0.1438.0, Culture=neutral, PublicKeyToken=50ecb853f8c6b8d2" /xmlName:"M:TestDriven.TestRunner.DebugTestRunner.run(System.String,System.String,System.String,System.String,System.String)" /parameter:"tcp://127.0.0.1:1209/fbe61976-3e56-40e1-9441-473699a7c649" /parameter:"tcp://127.0.0.1:1209/b2129cd1-615f-4ed0-b151-985c5f3b2ffa" /parameter:"C:\dev\Channels\ChannelsTests\bin\Release\ChannelsTests.dll" /parameter:"M:ChannelsTests.ChannelCreationTest.CreateAcceptor" /parameter</StartArguments>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectView>ProjectFiles</ProjectView>
+  </PropertyGroup>
+</Project>

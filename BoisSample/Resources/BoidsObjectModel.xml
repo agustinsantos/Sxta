@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+
+<objectModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="HLA.xsd"
+             DTDversion="1516.2"
+             name="Boids Object Model"
+             type="FOM"
+             version="1.0">
+
+	<objects>
+
+		<objectClass name="HLAobjectRoot"
+                     sharing="Neither">
+
+			<attribute name="HLAprivilegeToDeleteObject"
+                       dataType="NA"
+                       updateType="NA"
+                       updateCondition="NA"
+                       ownership="NoTransfer"
+                       sharing="Neither"
+                       dimensions="NA"
+                       transportation="HLAreliable"
+                       order="TimeStamp"/>
+
+			<objectClass name="Boid"
+                         sharing="PublishSubscribe"
+                         semantics="Boids models the behaviour of flocking animals (eg. birds) by simple 
+									rules which describe only the behaviour of individuals.
+									For a full explanation and an informative history of this algorithm 
+									see Craig Reynolds' boids page (http://www.red3d.com/cwr/boids/).">
+				
+				<attribute name="Color"
+                           dataType="HLAunicodeString"
+                           updateType="Static"
+                           updateCondition="NA"
+                           ownership="NoTransfer"
+                           sharing="PublishSubscribe"
+                           dimensions="NA"
+                           transportation="HLAreliable"
+                           order="Receive"
+                           semantics="The color of the Boid: green or red."/>
+
+				<attribute name="Position"
+                           dataType="Vector3"
+                           updateType="Static"
+                           updateCondition="NA"
+                           ownership="NoTransfer"
+                           sharing="PublishSubscribe"
+                           dimensions="NA"
+                           transportation="HLAbestEffort"
+                           order="Receive"
+                           semantics="The position vector of the boid."/>
+
+				<attribute name="Velocity"
+                           dataType="Vector3"
+                           updateType="Static"
+                           updateCondition="NA"
+                           ownership="NoTransfer"
+                           sharing="PublishSubscribe"
+                           dimensions="NA"
+                           transportation="HLAbestEffort"
+                           order="Receive"
+                           semantics="The velocity vector of the boid."/>
+				
+				<objectClass name="GoodBoid"
+							 sharing="PublishSubscribe"
+							 semantics="A good boid."/>
+				
+				<objectClass name="DepredatorBoid"
+							 sharing="PublishSubscribe"
+							 semantics="A bad boid."/>
+
+			</objectClass>
+			
+		</objectClass>
+
+	</objects>
+
+	<transportations>
+
+		<transportation name="HLAreliable"
+                        description="Provide reliable delivery of data in the
+                                     sense that TCP/IP delivers its data reliably."/>
+
+		<transportation name="HLAbestEffort"
+                        description="Make an effort to deliver data in the sense
+                                     that UDP provides best-effort delivery."/>
+
+	</transportations>
+
+	<dataTypes>
+
+		<basicDataRepresentations>
+			<basicData name="HLAfloat32BE"
+					   size="32"
+					   interpretation="Single-precision floating point number"
+					   endian="Big"
+					   encoding="32-bit IEEE normalized single-precision format. See IEEE Std 754-1985"/>
+
+			<basicData name="HLAfloat64BE"
+                       size="64"
+                       interpretation="Double-precision floating point number"
+                       endian="Big"
+                       encoding="64-bit IEEE normalized double-precision format. See IEEE Std 754-1985."/>
+
+			<basicData name="HLAoctetPairBE"
+                       size="16"
+                       interpretation="16-bit value"
+                       endian="Big"
+                       encoding="Assumed to be portable among hardware devices."/>
+
+		</basicDataRepresentations>
+
+		<simpleDataTypes>
+
+			<simpleData name="HLAunicodeChar"
+                        representation="HLAoctetPairBE"
+                        units="NA"
+                        resolution="NA"
+                        accuracy="NA"
+                        semantics="Unicode UTF-16 character (see The Unicode Standard, Version 3.0)."/>
+
+		</simpleDataTypes>
+
+		<arrayDataTypes>
+
+			<arrayData name="HLAunicodeString"
+                       dataType="HLAunicodeChar"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="Unicode string representation."/>
+
+		</arrayDataTypes>
+
+		<fixedRecordDataTypes>
+
+			<fixedRecordData name="Vector3" 
+					semantics="A vector of three floats used for position or velocity">
+				<field name="x" dataType="HLAfloat32BE" semantics="Component along the X axis" />
+				<field name="y" dataType="HLAfloat32BE" semantics="Component along the Y axis" />
+				<field name="z" dataType="HLAfloat32BE" semantics="Component along the Z axis" />
+			</fixedRecordData>
+
+		</fixedRecordDataTypes>
+
+	</dataTypes>
+
+</objectModel>

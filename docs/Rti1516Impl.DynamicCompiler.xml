@@ -1,0 +1,546 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DynamicCompiler</name>
+    </assembly>
+    <members>
+        <member name="T:Sxta.Rti1516.DynamicCompiler.DynamicCompiler">
+            <summary> 
+            The dynamic proxy compiler.  May be invoked as a command line application or
+            by using the static <code>CompileProxies</code> method (from within an NAnt
+            task, for instance).
+            </summary>
+            <author> Agustin Santos.
+            </author>
+            <summary> 
+            The dynamic proxy compiler.  May be invoked as a command line application or
+            by using the static <code>CompileProxies</code> method (from within an NAnt
+            task, for instance).
+            </summary>
+            <author> Agustin Santos.
+            </author>
+            <summary> 
+            The dynamic proxy compiler.  May be invoked as a command line application or
+            by using the static <code>CompileProxies</code> method (from within an NAnt
+            task, for instance).
+            </summary>
+            <author> Agustin Santos.
+            </author>
+            <summary> 
+            The dynamic proxy compiler.  May be invoked as a command line application or
+            by using the static <code>CompileProxies</code> method (from within an NAnt
+            task, for instance).
+            </summary>
+            <author> Agustin Santos.
+            </author>
+            <summary> 
+            The dynamic proxy compiler.  May be invoked as a command line application or
+            by using the static <code>CompileProxies</code> method (from within an NAnt
+            task, for instance).
+            </summary>
+            <author> Agustin Santos.
+            </author>
+            <summary> 
+            The dynamic proxy compiler.  May be invoked as a command line application or
+            by using the static <code>CompileProxies</code> method (from within an NAnt
+            task, for instance).
+            </summary>
+            <author> Agustin Santos.
+            </author>
+        </member>
+        <member name="F:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.log">
+            <summary>
+            Define a static logger variable so that it references the
+            Logger instance.
+            
+            NOTE that using System.Reflection.MethodBase.GetCurrentMethod().DeclaringType
+            is equivalent to typeof(LoggingExample) but is more portable
+            i.e. you can copy the code directly into another class without
+            needing to edit the code.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.#ctor(Sxta.Rti1516.Reflection.DescriptorManager)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.CompileProxies">
+            <summary>
+            Compile native source code for a set of proxy classes corresponding to
+            the object and classSerializerHelperName classes described in the federation
+            description document.  Any existing files will be overwritten.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateCodeForProxies(System.IO.StreamWriter)">
+            <summary>
+            Generates native source code for a set of proxy classes corresponding to
+            the object and classSerializerHelperName classes described in the federation
+            description document.  Any existing files will be overwritten.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateAssemblyDataTypes(System.IO.StreamWriter,System.String)">
+            <summary> 
+            Generates data type defined as Assembly Attributes.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateNamespaceDataTypes(System.IO.StreamWriter)">
+            <summary> 
+            Generates data type classes.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateNamespaceDataTypesSerializers(System.IO.StreamWriter,System.Int32)">
+            <summary> 
+            Generates data type classes.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateBasicDataTypes(System.IO.StreamWriter,System.String)">
+            <summary> 
+            Generates all basic data types.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateArrayDataTypes(System.IO.StreamWriter,System.String)">
+            <summary> 
+            Generates all array data types.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateSimpleDataTypes(System.IO.StreamWriter)">
+            <summary> 
+            Generates all Simple data types.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateSimpleDataType(System.IO.StreamWriter,Sxta.Rti1516.Reflection.HLASimpleData)">
+            <summary> 
+            Generates all Simple data types.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateEnumeratedDataTypes(System.IO.StreamWriter)">
+            <summary> 
+            Generates all enumerated data types.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateEnumeratedDataTypesSerializers(System.IO.StreamWriter,System.Int32)">
+            <summary> 
+            Generates all enumerated data types.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateEnumeratedDataType(System.IO.StreamWriter,Sxta.Rti1516.Reflection.HLAEnumeratedData)">
+            <summary> 
+            Generates an enumerated data type class.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateEnumeratedDataTypeSerializer(System.IO.StreamWriter,Sxta.Rti1516.Reflection.HLAEnumeratedData,System.Int32)">
+            <summary> 
+            Generates an enumerated data type class.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateHLAEnumeratedDataAttribute(System.Int32,System.IO.StreamWriter,Sxta.Rti1516.Reflection.HLAEnumeratedData)">
+            <summary> 
+            Generates a <code>GenerateHLAEnumeratedDataAttribute</code>.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateHLASimpleDataAttribute(System.Int32,System.IO.StreamWriter,Sxta.Rti1516.Reflection.HLASimpleData)">
+            <summary> 
+            Generates a <code>GenerateHLASimpleDataAttribute</code>.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GeneratePackageDependencies(System.IO.StreamWriter,System.Int32)">
+            <summary>
+            Prints a code block with the using clauses 
+            </summary>
+            <param name="stream">the print stream to write the code block to
+            </param>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.PrintSerializationBlock(System.IO.StreamWriter,System.Int32,System.Char,System.String,System.String,System.String)">
+            <summary> 
+            Prints a code block that will serialize the specified variable to the
+            given stream.
+            </summary>
+            <param name="ps">the print stream to write the code block to
+            </param>
+            <param name="indentLevel">the level of indentation to use
+            </param>
+            <param name="iteratorVariable">the name of the iterator variable to use ('i', 'j', 'k'...)
+            </param>
+            <param name="dataTypeName">the name of the variable's data type
+            </param>
+            <param name="variableName">the name of the variable
+            </param>
+            <param name="streamName">the name of the stream
+            </param>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.PrintDeserializationBlock(System.IO.StreamWriter,System.Int32,System.Char,System.String,System.String,System.String)">
+            <summary> 
+            Prints a code block that will deserialize the specified variable from the
+            given stream.
+            </summary>
+            <param name="sw">the print stream to write the code block to
+            </param>
+            <param name="indentLevel">the level of indentation to use
+            </param>
+            <param name="iteratorVariable">the name of the iterator variable to use ('i', 'j', 'k'...)
+            </param>
+            <param name="dataTypeName">the name of the variable's data type
+            </param>
+            <param name="variableName">the name of the variable
+            </param>
+            <param name="streamName">the name of the stream
+            </param>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.ConvertToIdentifier(System.String)">
+            <summary> 
+            Converts the specified free-form name to a reasonable Native identifier by
+            removing whitespace and illegal characters and so on.
+            </summary>
+            <param name="anyName">the free-form name to convert
+            </param>
+            <returns> the converted name
+            </returns>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.NativeTypeForDataType(System.String)">
+            <summary> 
+            Returns the native type name corresponding to the specified data type name.
+            </summary>
+            <param name="dataTypeName">
+            the data type name
+            </param>
+            <returns> 
+            the corresponding native type name
+            </returns>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.NativeTypeForBasicRepresentation(System.String)">
+            <summary> 
+            Returns the Native type name corresponding to the specified basic representation
+            name.
+            </summary>
+            <param name="basicRepresentationName">the basic representation name
+            </param>
+            <returns> the corresponding Native type name
+            </returns>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GetPackageName(System.String)">
+            <summary> 
+            Returns the name of the package specified by the given fully
+            qualified class name.
+            </summary>
+            <param name="className">the fully qualified class name
+            </param>
+            <returns> the package name, or <code>null</code> for the base package
+            </returns>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GetInterfaceName(System.String)">
+            <summary> 
+            Returns the name of the interface specified by the given a name
+            </summary>
+            <param name="interfaceName">the fully qualified interface name
+            </param>
+            <returns> the interface name
+            </returns>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.PrintClassComment(System.IO.StreamWriter,System.String,System.Int32)">
+            <summary> 
+            Prints a class comment.
+            </summary>
+            <param name="sw">the print stream to write the comment to
+            </param>
+            <param name="body">the body of the comment
+            </param>
+            <param name="indentLevel">the indent level of the comments
+            </param>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.FormatCommentBody(System.Int32,System.String)">
+            <summary> 
+            Formats the body of a comment, adding asterisks at the beginning of each line.
+            </summary>
+            <param name="indentLevel">
+            the level of indentation required
+            </param>
+            <param name="commentBody">
+            the comment body to format
+            </param>
+            <returns> 
+            the formatted body
+            </returns>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.PrintVariableComment(System.IO.StreamWriter,System.String,System.Int32)">
+            <summary> 
+            Prints a variable comment.
+            </summary>
+            <param name="sw">
+            the print stream to write the comment to
+            </param>
+            <param name="body">
+            the body of the comment
+            </param>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateIndentString(System.Int32)">
+            <summary> 
+            Generates an indentation string for the specified level of indentation.
+            </summary>
+            <param name="indentLevel">the level of indentation desired
+            </param>
+            <returns> the indentation string
+            </returns>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.Spacer(System.String)">
+            <summary> 
+            Generates a string of the same length as the parameter, consisting only
+            of space characters.
+            </summary>
+            <param name="referencedString">the string whose length is to be copied
+            </param>
+            <returns> the space string
+            </returns>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.ConvertToNativeClassName(System.String)">
+            <summary> 
+            Converts the specified free-form name to a reasonable Native class name by
+            removing whitespace and illegal characters, modifying capitalization, and
+            so on.
+            </summary>
+            <param name="anyName">the free-form name to convert
+            </param>
+            <returns> 
+            the converted name
+            </returns>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.Capitalize(System.String)">
+            <summary> 
+            Capitalizes the first letter of the specified string.
+            </summary>
+            <param name="strToCapitalize">the string to Capitalize
+            </param>
+            <returns> the capitalized string
+            </returns>
+        </member>
+        <member name="F:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.descriptorManager">
+            <summary> The descriptor manager responsible for all descriptors (federation descriptors).</summary>
+        </member>
+        <member name="F:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.targetDirectory">
+            <summary> The target directory.</summary>
+        </member>
+        <member name="F:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.packagePrefix">
+            <summary> The package prefix.</summary>
+        </member>
+        <member name="F:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.generatedSerializersFile">
+            <summary> The generated serializers file.</summary>
+        </member>
+        <member name="F:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.assemblyDeclarationFilename">
+            <summary> 
+            The Basic data types assembly declaration file.
+            </summary>
+        </member>
+        <member name="F:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.proxyAmbassadorName">
+            <summary> The proxy ambassador name.</summary>
+        </member>
+        <member name="F:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.classSerializerHelperName">
+            <summary> The class serializer helper name.</summary>
+        </member>
+        <member name="F:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.interactionListenerName">
+            <summary> The classSerializerHelperName listener name.</summary>
+        </member>
+        <member name="F:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.opaqueTypes">
+            <summary> 
+            The set of opaque types: types that must be stored as byte arrays because
+            their encodings are non-standard.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateInteractions(System.IO.StreamWriter)">
+            <summary> 
+            Generates Interactions Class.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateInteractionsSerializers(System.IO.StreamWriter,System.Int32)">
+            <summary> 
+            Generates Interactions Class.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateHLAInteractionClassAttribute(System.Int32,System.IO.StreamWriter,Sxta.Rti1516.Reflection.InteractionClassDescriptor)">
+            <summary> 
+            Generates a <code>HLAInteractionClass</code>.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateHLAInteractionParameterAttribute(System.Int32,System.IO.StreamWriter,Sxta.Rti1516.Reflection.ParameterDescriptor)">
+            <summary> 
+            Generates a <code>HLAInteractionParameter</code>.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateInteractionsMessages(System.IO.StreamWriter,System.Collections.Generic.List{System.String},Sxta.Rti1516.Reflection.InteractionClassDescriptor,System.String)">
+            <summary> 
+            Generates Interactions Class.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateInteractionsSerializers(System.IO.StreamWriter,System.Collections.Generic.List{System.String},Sxta.Rti1516.Reflection.InteractionClassDescriptor,System.String,System.Int32)">
+            <summary> 
+            Generates Interactions Class serializers.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateInteractionListener(System.IO.StreamWriter,System.Int32)">
+            <summary> 
+            Generates the interaction listener source file.
+            </summary>
+            <param name="fddDocument">the parsed federation description document
+            </param>
+            <exception cref="!:TypeConflictException">  if a type conflict is detected
+            </exception>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateInteractionsAndSerializersHelper(System.IO.StreamWriter,System.Collections.Generic.List{System.String},System.String,System.Int32)">
+            <summary> 
+            Generates Interactions Class Listener.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.PrintReceiveInteractionBlock(System.IO.StreamWriter,Sxta.Rti1516.Reflection.InteractionClassDescriptor,System.String,System.Boolean,System.Int32)">
+            <summary> 
+            Prints the receive interaction block for the specified interaction class
+            element and its sub-elements.
+            </summary>
+            <param name="sw">the stream to print to
+            </param>
+            <param name="interaction">the interaction class element to process
+            </param>
+            <param name="first">whether or not this is the first block being printed
+            </param>
+            <returns> the new value for <code>first</code>: <code>true</code> if the first
+            block has not been printed, <code>false</code> if it has been
+            </returns>
+            <exception cref="!:"> TypeConflictException if a type conflict is detected
+            </exception>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.PrintInteractionClassSerializerRegistration(System.IO.StreamWriter,System.Int32,Sxta.Rti1516.Reflection.InteractionClassDescriptor)">
+            <summary> 
+            Prints the set of object class handle and Properties serialization helpers for the specified object class
+            element and its sub-elements.
+            </summary>
+            <param name="sw">the stream to print to
+            </param>
+            <param name="objectClassElement">the object class element to process
+            </param>
+            <exception cref="!:"> TypeConflictException if a type conflict is detected
+            </exception>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.PrintObjectClassSerializerRegistration(System.IO.StreamWriter,System.Int32,Sxta.Rti1516.Reflection.ObjectClassDescriptor)">
+            <summary> 
+            Prints the set of object class handle and Properties serialization helpers for the specified object class
+            element and its sub-elements.
+            </summary>
+            <param name="sw">the stream to print to
+            </param>
+            <param name="objectClassElement">the object class element to process
+            </param>
+            <exception cref="!:"> TypeConflictException if a type conflict is detected
+            </exception>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateFixedRecordDataTypes(System.IO.StreamWriter)">
+            <summary> 
+            Generates all fixed record data type class.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateFixedRecordDataTypesSerializers(System.IO.StreamWriter,System.Int32)">
+            <summary> 
+            Generates serializers for  all fixed record data type class.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateFixedRecordDataType(System.IO.StreamWriter,Sxta.Rti1516.Reflection.HLAFixedRecordData)">
+            <summary> 
+            Generates a fixed record data type class.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateFixedRecordDataTypeSerializers(System.IO.StreamWriter,Sxta.Rti1516.Reflection.HLAFixedRecordData,System.Int32)">
+            <summary> 
+            Generates a serializer class for the fixed record data type class.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateHLAFixedRecordDataAttribute(System.Int32,System.IO.StreamWriter,Sxta.Rti1516.Reflection.HLAFixedRecordData)">
+            <summary> 
+            Generates a <code>HLAFixedRecordDataAttribute</code>.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateHLARecordFieldAttribute(System.Int32,System.IO.StreamWriter,Sxta.Rti1516.Reflection.HLARecordField)">
+            <summary> 
+            Generates a <code>HLARecordFieldAttribute</code>.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateHLAObjectClassAttribute(System.Int32,System.IO.StreamWriter,Sxta.Rti1516.Reflection.ObjectClassDescriptor)">
+            <summary> 
+            Generates a <code>HLAObjectClassAttribute</code>.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateHLAAttributeAttribute(System.Int32,System.IO.StreamWriter,Sxta.Rti1516.Reflection.AttributeDescriptor)">
+            <summary> 
+            Generates a <code>HLAAttributeAttribute</code>.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateObjectClass(System.IO.StreamWriter)">
+            <summary> 
+            Generates all the object class definitions.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateObjectClassSerializers(System.IO.StreamWriter,System.Int32)">
+            <summary> 
+            Generates all the object class definitions.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateObjectClassInterface(System.IO.StreamWriter,System.Collections.Generic.List{System.String},Sxta.Rti1516.Reflection.ObjectClassDescriptor,System.String)">
+            <summary> 
+            Generates all the object class interfaces.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateObjectInstanceProxy(System.IO.StreamWriter,System.Collections.Generic.List{System.String},Sxta.Rti1516.Reflection.ObjectClassDescriptor,System.String)">
+            <summary> 
+            Generates an object instance proxy source file.
+            </summary>
+            <param name="classElement">the object instance class element containing the relevant
+            information
+            </param>
+            <param name="superClassName">the name of the proxy superclass
+            </param>
+            <exception cref="!:"> TypeConflictException if a type conflict is detected
+            </exception>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.PrintObjectPropertiesSerializers(System.IO.StreamWriter,Sxta.Rti1516.Reflection.ObjectClassDescriptor,System.Int32)">
+            <summary> 
+            Prints the set of serializers class for the Properties of the specified object class
+            element.
+            </summary>
+            <param name="sw">the stream to print to
+            </param>
+            <param name="objectClassElement">the object class element to process
+            </param>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateObjectModel(System.IO.StreamWriter,System.String)">
+            <summary> 
+            Generates Object Model Info.
+            </summary>
+        </member>
+        <member name="M:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.GenerateHLAObjectModelAttribute(System.IO.StreamWriter,System.Int32,Sxta.Rti1516.Reflection.HLAObjectModel)">
+            <summary> 
+            Generates a <code>HLAObjectModelAttribute</code>.
+            </summary>
+        </member>
+        <member name="P:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.DescriptorManager">
+            <summary> 
+            Manages a set of descriptors that represent features of the federation
+            (object classes, classSerializerHelperName classes, and so on).       
+            </summary>
+        </member>
+        <member name="P:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.TargetDirectory">
+            <summary> 
+            The target directory in which to place generated source files.
+            </summary>
+        </member>
+        <member name="P:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.PackagePrefix">
+            <summary> 
+            The package prefix.
+            </summary>
+        </member>
+        <member name="P:Sxta.Rti1516.DynamicCompiler.DynamicCompiler.AssemblyDeclarationFilename">
+            <summary> 
+            The Basic data types assembly declaration file.
+            </summary>
+        </member>
+        <member name="T:Sxta.Rti1516.DynamicCompiler.Tokenizer">
+            <summary>
+            TODO: Be carefull. There is another tokenizer class in supportClass. 
+            </summary>
+        </member>
+    </members>
+</doc>

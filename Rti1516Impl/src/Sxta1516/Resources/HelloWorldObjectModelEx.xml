@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+
+<objectModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="HLA.xsd"
+             DTDversion="1516.2"
+             name="Hello World Object Model (Extended)"
+             type="FOM"
+             version="1.0">
+
+    <objects>
+
+        <objectClass name="HLAobjectRoot"
+                     sharing="Neither">
+
+            <attribute name="HLAprivilegeToDeleteObject"
+                       dataType="NA"
+                       updateType="NA"
+                       updateCondition="NA"
+                       ownership="NoTransfer"
+                       sharing="Neither"
+                       dimensions="NA"
+                       transportation="HLAreliable"
+                       order="TimeStamp"/>
+                       
+            <objectClass name="Country"
+                         sharing="PublishSubscribe"
+                         semantics="A country.">
+                
+                <attribute name="name"
+                           dataType="HLAunicodeString"
+                           updateType="Static"
+                           updateCondition="NA"
+                           ownership="NoTransfer"
+                           sharing="PublishSubscribe"
+                           dimensions="NA"
+                           transportation="HLAreliable"
+                           order="Receive"
+                           semantics="The name of the country."/>
+                           
+                <attribute name="population"
+                           dataType="Population"
+                           updateType="Periodic"
+                           updateCondition="NA"
+                           ownership="NoTransfer"
+                           sharing="PublishSubscribe"
+                           dimensions="NA"
+                           transportation="HLAbestEffort"
+                           order="Receive"
+                           semantics="The population of the country."/>
+                
+                <objectClass name="EconomicCountry"
+                             sharing="PublishSubscribe"
+                             semantics="A country with an economy.">
+                
+                    <attribute name="grossDomesticProduct"
+                               dataType="AmountOfMoney"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The country's gross domestic product."/>
+                    
+                </objectClass>
+                
+            </objectClass>
+        
+        </objectClass>
+    
+    </objects>
+    
+    <interactions>
+
+        <interactionClass name="HLAinteractionRoot"
+                          sharing="Neither"
+                          dimensions="NA"
+                          transportation="HLAreliable"
+                          order="Receive">
+
+            <interactionClass name="Communication"
+                              sharing="PublishSubscribe"
+                              dimensions="NA"
+                              transportation="HLAreliable"
+                              order="Receive"
+                              semantics="A generic message.">
+                
+                <parameter name="message"
+                           dataType="HLAunicodeString"
+                           semantics="The contents of the message."/>
+            
+                <interactionClass name="PrioritizedCommunication"
+                                  sharing="PublishSubscribe"
+                                  dimensions="NA"
+                                  transportation="HLAreliable"
+                                  order="Receive"
+                                  semantics="A prioritized message.">
+            
+                    <parameter name="priority"
+                               dataType="Priority"
+                               semantics="The priority level of the message."/>
+                    
+                </interactionClass>
+                
+            </interactionClass>
+    
+        </interactionClass>
+    
+    </interactions>
+    
+    <transportations>
+
+        <transportation name="HLAreliable"
+                        description="Provide reliable delivery of data in the
+                                     sense that TCP/IP delivers its data reliably."/>
+
+        <transportation name="HLAbestEffort"
+                        description="Make an effort to deliver data in the sense
+                                     that UDP provides best-effort delivery."/>
+
+    </transportations>
+    
+    <dataTypes>
+    
+        <basicDataRepresentations>
+        
+            <basicData name="HLAfloat64BE"
+                       size="64"
+                       interpretation="Double-precision floating point number"
+                       endian="Big"
+                       encoding="64-bit IEEE normalized double-precision format.
+                                 See IEEE Std 754-1985."/>
+                          
+            <basicData name="HLAoctetPairBE"
+                       size="16"
+                       interpretation="16-bit value"
+                       endian="Big"
+                       encoding="Assumed to be portable among hardware devices."/>
+                       
+        </basicDataRepresentations>
+        
+        <simpleDataTypes>
+
+            <simpleData name="HLAunicodeChar"
+                        representation="HLAoctetPairBE"
+                        units="NA"
+                        resolution="NA"
+                        accuracy="NA"
+                        semantics="Unicode UTF-16 character (see The Unicode
+                                   Standard, Version 3.0)."/>
+
+            <simpleData name="Population"
+                        representation="HLAfloat64BE"
+                        units="millions of people"/>
+                        
+            <simpleData name="AmountOfMoney"
+                        representation="HLAfloat64BE"
+                        units="US dollars"
+                        semantics="An amount of money."/>
+                        
+            <simpleData name="Priority"
+                        representation="HLAfloat64BE"
+                        semantics="A priority level from 0.0 to 1.0."/>
+                        
+        </simpleDataTypes>
+        
+        <arrayDataTypes>
+        
+            <arrayData name="HLAunicodeString"
+                       dataType="HLAunicodeChar"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="Unicode string representation."/>
+                       
+        </arrayDataTypes>
+        
+    </dataTypes>
+    
+</objectModel>

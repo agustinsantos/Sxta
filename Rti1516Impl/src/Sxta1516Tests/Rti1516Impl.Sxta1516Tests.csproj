@@ -1,0 +1,145 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<ProjectType>Local</ProjectType>
+		<ProductVersion>8.0.50727</ProductVersion>
+		<SchemaVersion>2.0</SchemaVersion>
+		<ProjectGuid>{4F805423-3FAB-4DB0-AA7E-7A6CFBA988BE}</ProjectGuid>
+		<Configuration Condition = " '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition = " '$(Platform)' == '' ">AnyCPU</Platform>
+		<ApplicationIcon></ApplicationIcon>
+		<AssemblyKeyContainerName></AssemblyKeyContainerName>
+		<AssemblyName>Sxta1516Tests</AssemblyName>
+		<AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+		<DefaultClientScript>JScript</DefaultClientScript>
+		<DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+		<DefaultTargetSchema>IE50</DefaultTargetSchema>
+		<DelaySign>false</DelaySign>
+		<OutputType>Library</OutputType>
+		<RootNamespace>Sxta1516.Sxta1516Tests</RootNamespace>
+		<StartupObject></StartupObject>
+		<FileUpgradeFlags></FileUpgradeFlags>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+		<BaseAddress>285212672</BaseAddress>
+		<CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+		<ConfigurationOverrideFile></ConfigurationOverrideFile>
+		<DefineConstants>TRACE</DefineConstants>
+		<DocumentationFile>../../../docs/Rti1516Impl.Sxta1516Tests.xml</DocumentationFile>
+		<DebugSymbols>False</DebugSymbols>
+		<FileAlignment>4096</FileAlignment>
+		<Optimize>True</Optimize>
+		<OutputPath>..\..\..\build\Release\Sxta1516Tests\</OutputPath>
+		<RegisterForComInterop>False</RegisterForComInterop>
+		<RemoveIntegerChecks>False</RemoveIntegerChecks>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<WarningLevel>4</WarningLevel>
+		<NoWarn></NoWarn>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AutomatedDebug|AnyCPU' ">
+		<AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+		<BaseAddress>285212672</BaseAddress>
+		<CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+		<ConfigurationOverrideFile></ConfigurationOverrideFile>
+		<DefineConstants>TRACE;DEBUG</DefineConstants>
+		<DocumentationFile>../../../docs/Rti1516Impl.Sxta1516Tests.xml</DocumentationFile>
+		<DebugSymbols>True</DebugSymbols>
+		<FileAlignment>4096</FileAlignment>
+		<Optimize>False</Optimize>
+		<OutputPath>..\..\..\build\AutomatedDebug\Sxta1516Tests\</OutputPath>
+		<RegisterForComInterop>False</RegisterForComInterop>
+		<RemoveIntegerChecks>False</RemoveIntegerChecks>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<WarningLevel>4</WarningLevel>
+		<NoWarn></NoWarn>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+		<BaseAddress>285212672</BaseAddress>
+		<CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+		<ConfigurationOverrideFile></ConfigurationOverrideFile>
+		<DefineConstants>TRACE;DEBUG</DefineConstants>
+		<DocumentationFile>../../../docs/Rti1516Impl.Sxta1516Tests.xml</DocumentationFile>
+		<DebugSymbols>True</DebugSymbols>
+		<FileAlignment>4096</FileAlignment>
+		<Optimize>False</Optimize>
+		<OutputPath>..\..\..\build\Debug\Sxta1516Tests\</OutputPath>
+		<RegisterForComInterop>False</RegisterForComInterop>
+		<RemoveIntegerChecks>False</RemoveIntegerChecks>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<WarningLevel>4</WarningLevel>
+		<NoWarn></NoWarn>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include = "System">
+			<Name>System</Name>
+			<HintPath>\System.dll</HintPath>
+		</Reference>
+		<Reference Include = "System.Data">
+			<Name>System.Data</Name>
+			<HintPath>\System.Data.dll</HintPath>
+		</Reference>
+		<Reference Include = "System.Xml">
+			<Name>System.Xml</Name>
+			<HintPath>\System.Xml.dll</HintPath>
+		</Reference>
+		<Reference Include = "log4net">
+			<Name>log4net</Name>
+			<HintPath>\log4net.dll</HintPath>
+		</Reference>
+		<Reference Include = "nini">
+			<Name>nini</Name>
+			<HintPath>\nini.dll</HintPath>
+		</Reference>
+		<Reference Include = "nunit.core">
+			<Name>nunit.core</Name>
+			<HintPath>\nunit.core.dll</HintPath>
+		</Reference>
+		<Reference Include = "nunit.framework">
+			<Name>nunit.framework</Name>
+			<HintPath>\nunit.framework.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Rti1516\Rti1516Impl.Rti1516.csproj">
+			<Name>Rti1516Impl.Rti1516</Name>
+			<Project>{F6D77CE8-26E2-44A4-8232-925329A55158}</Project>
+			<Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+		</ProjectReference>
+		<ProjectReference Include="..\Sxta1516\Rti1516Impl.Sxta1516.csproj">
+			<Name>Rti1516Impl.Sxta1516</Name>
+			<Project>{08E9421B-6975-4D41-9B42-AB9197C2362C}</Project>
+			<Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+		</ProjectReference>
+	</ItemGroup>
+	<ItemGroup>
+		<Compile  Include ="AOPTests.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile  Include ="AOPTests2.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile  Include ="DescriptorManagerTests.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile  Include ="InteractionTests.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile  Include ="InteractionTests2.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile  Include ="InteractionTests3.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile  Include ="Properties\AssemblyInfo.cs">
+			<SubType>Code</SubType>
+		</Compile>
+	</ItemGroup>
+	<Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+	<PropertyGroup>
+		<PreBuildEvent>
+		</PreBuildEvent>
+		<PostBuildEvent>
+		</PostBuildEvent>
+	</PropertyGroup>
+</Project>

@@ -1,0 +1,59 @@
+<Plugin name       = "Sxta.Rti1516.TimeManagementSample"
+       author      = "Ángel Silva"
+       copyright   = "GPL"
+       url         = "http://www.sxta.net"
+       description = "A sample plugin with Time Management simulation"
+       version     = "0.0.1">
+
+	<Runtime>
+		<Import assembly="TimeManagementSimulation.dll"/>
+	</Runtime>
+
+	<Extension path = "/Plugins">
+    
+		<Module id = "Slow Peer NRNC - Time Management Demo" class = "Sxta.Rti1516.TimeManagementSample.TimeManagementSimulation" >
+			<ObjectModel>
+        <FomModel From="File" Uri="Resources/TimeManagementObjectModel.xml"/>
+				<FomModel From="Assembly"/>
+			</ObjectModel>
+			<Channels>
+				<TcpChannel Name="AChannelReliable" Address="localhost" Port="7777"/>
+				<UdpChannel Name="AChannelBestEffort" Address="localhost" Port="1234"/>
+				<MultiChannel Name="AChannelMulticast" Address="224.0.0.1" Port="8080"/>
+				<Mapping>
+					<Transport Name="HLAreliable" Use="AChannelReliable" />
+					<Transport Name="HLAbestEffort" Use="AChannelBestEffort" />
+					<Transport Name="Multicast" Use="AChannelMulticast" />
+				</Mapping>
+			</Channels>
+      <Simulation Delay="1500" />
+      <Federation Name="HelloWorld" />
+      <Federate Type="Slow Peer" IsRegulator="false" IsConstrained="false" Lookahead="0,2" />
+      <Actor Name="Zeus" Color="Rojo" />
+      <Home PosX="3" PosY="13" BoxesCount="0" />
+		</Module>
+
+    <Module id = "Fast Peer NRNC - Time Management Demo" class = "Sxta.Rti1516.TimeManagementSample.TimeManagementSimulation" >
+      <ObjectModel>
+        <FomModel From="File" Uri="Resources/TimeManagementObjectModel.xml"/>
+        <FomModel From="Assembly"/>
+      </ObjectModel>
+      <Channels>
+        <TcpChannel Name="AChannelReliable" Address="localhost" Port="7777"/>
+        <UdpChannel Name="AChannelBestEffort" Address="localhost" Port="1234"/>
+        <MultiChannel Name="AChannelMulticast" Address="224.0.0.1" Port="8080"/>
+        <Mapping>
+          <Transport Name="HLAreliable" Use="AChannelReliable" />
+          <Transport Name="HLAbestEffort" Use="AChannelBestEffort" />
+          <Transport Name="Multicast" Use="AChannelMulticast" />
+        </Mapping>
+      </Channels>
+      <Simulation Delay="800" />
+      <Federation Name="HelloWorld" />
+      <Federate Type="Fast Peer" IsRegulator="false" IsConstrained="false" Lookahead="0,2" />
+      <Actor Name="Apolo" Color="Verde" />
+      <Home PosX="11" PosY="3" BoxesCount="0" />
+    </Module>
+    
+	</Extension>
+</Plugin>

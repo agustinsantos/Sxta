@@ -1,0 +1,374 @@
+<?xml version="1.0"?>
+
+<objectModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="HLA.xsd"
+             DTDversion="1516.2"
+             name="Bootstrap Object Model"
+             type="FOM"
+             version="1.0">
+
+	<interactions>
+
+		<interactionClass name="HLAinteractionRoot"
+                          sharing="Neither"
+                          dimensions="NA"
+                          transportation="HLAreliable"
+                          order="Receive">
+
+			<interactionClass name="BaseInteraction"
+                              sharing="Neither"
+                              dimensions="NA"
+                              transportation="HLAreliable"
+                              order="Receive"
+                              semantics="Root class of BOM interactions.">
+
+          <parameter name="federateHandle"
+							   dataType="HLAnormalizedHandle"
+							   semantics="Federate handle."/>
+
+          <parameter name="interactionIndex"
+							   dataType="HLAnormalizedHandle"
+							   semantics="Interaction index."/>
+
+					<parameter name="federationExecutionHandle"
+							   dataType="HLAnormalizedHandle"
+							   semantics="Federation execution handle."/>
+
+					<parameter name="userSuppliedTag"
+							   dataType="HLAopaqueData"
+							   semantics="User-supplied tag associated with the interaction."/>
+
+					<parameter name="interactionClassHandle"
+							   dataType="HLAnormalizedHandle"
+							   semantics="Interaction class handle."/>
+
+				<interactionClass name="HLAGenericInteraction"
+								  sharing="PublishSubscribe"
+								  transportation="HLAbestEffort"
+								  order="Receive"
+								  semantics="A piece of a fragmented interaction.">
+
+					<parameter name="parameterList"
+                               dataType="HLAparameterHandleValuePairList"
+                               semantics="List of parameter handle/value pairs."/>
+
+				</interactionClass>
+
+
+				<interactionClass name="HLAinteractionFragment"
+                                  sharing="PublishSubscribe"
+                                  transportation="HLAbestEffort"
+                                  order="Receive"
+                                  semantics="A piece of a fragmented interaction.">
+
+					<parameter name="interactionNumber"
+                               dataType="HLAinteractionSequenceNumber"
+                               semantics="The sequence number of the fragmented interaction."/>
+
+					<parameter name="interactionSize"
+                               dataType="HLAbufferSize"
+                               semantics="The size of the fragmented interaction."/>
+
+					<parameter name="fragmentOffset"
+                               dataType="HLAbufferOffset"
+                               semantics="The offset of this fragment in the buffer."/>
+
+					<parameter name="fragmentContents"
+                               dataType="HLAopaqueData"
+                               semantics="The contents of the fragment."/>
+
+				</interactionClass>
+
+				<interactionClass name="HLAcontinue"
+                                  sharing="PublishSubscribe"
+                                  transportation="HLAreliable"
+                                  order="Receive"
+                                  semantics="Notifies the federate that the executive
+                                             is done sending callbacks."/>
+
+				<interactionClass name="PeerAdvertisementInteraction"
+								  sharing="PublishSubscribe"
+								  transportation="Broadcast"
+								  order="Receive"
+								  semantics="A Peer Advertisement describes a peer and the resources it provides to the system.
+											The Peer Advertisement holds specific information about the peer such as 
+											its unique id, and optionally its name and descriptive information. 
+											It may also contain endpoint addresses and any run-time attributes that individual
+											peer services want to publish (such as being a rendezvous peer for a group).">
+
+					<parameter name="PeerName"
+                               dataType="HLAunicodeString"
+                               semantics="The name of the peer."/>
+
+					<parameter name="PeerDescription"
+                               dataType="HLAunicodeString"
+                               semantics="A description of the peer."/>
+
+					<parameter name="PeerChannels"
+                               dataType="ConnectionList"
+                               semantics="A list of URI describing the open channels (TCP/UDP)."/>
+
+				</interactionClass>
+
+			</interactionClass>
+
+		</interactionClass>
+
+	</interactions>
+
+	<transportations>
+
+		<transportation name="HLAreliable"
+                        description="Provide reliable delivery of data in the
+                                     sense that TCP/IP delivers its data reliably."/>
+
+		<transportation name="HLAbestEffort"
+                        description="Make an effort to deliver data in the sense
+                                     that UDP provides best-effort delivery."/>
+
+		<transportation name="Broadcast"
+                        description="Provide multicastdelivery of data in the
+                                     sense that UDP broadcasting delivers its data"/>
+
+	</transportations>
+
+	<dataTypes>
+
+		<basicDataRepresentations>
+
+			<basicData name="HLAinteger16BE"
+                       size="16"
+                       interpretation="Integer in the range [-2^15, 2^15 ? 1]"
+                       endian="Big"
+                       encoding="16-bit two's complement signed integer. The
+                                 most significant bit contains the sign."/>
+
+			<basicData name="HLAinteger32BE"
+                       size="32"
+                       interpretation="Integer in the range [-2^31, 2^31 ? 1]"
+                       endian="Big"
+                       encoding="32-bit two's complement signed integer. The
+                                 most significant bit contains the sign."/>
+
+			<basicData name="HLAinteger64BE"
+                       size="64"
+                       interpretation="Integer in the range [-2^63, 2^63 ? 1]"
+                       endian="Big"
+                       encoding="64-bit two's complement signed integer first.
+                                 The most significant bit contains the sign."/>
+
+			<basicData name="HLAfloat32BE"
+                       size="32"
+                       interpretation="Single-precision floating point number"
+                       endian="Big"
+                       encoding="32-bit IEEE normalized single-precision format.
+                                 See IEEE Std 754-1985."/>
+
+			<basicData name="HLAfloat64BE"
+                       size="64"
+                       interpretation="Double-precision floating point number"
+                       endian="Big"
+                       encoding="64-bit IEEE normalized double-precision format.
+                                 See IEEE Std 754-1985."/>
+
+			<basicData name="HLAoctetPairBE"
+                       size="16"
+                       interpretation="16-bit value"
+                       endian="Big"
+                       encoding="Assumed to be portable among hardware devices."/>
+
+			<basicData name="HLAinteger16LE"
+                       size="16"
+                       interpretation="Integer in the range [-2^15, 2^15 ? 1]"
+                       endian="Little"
+                       encoding="16-bit two's complement signed integer. The
+                                 most significant bit contains the sign."/>
+
+			<basicData name="HLAinteger32LE"
+                       size="32"
+                       interpretation="Integer in the range [-2^31, 2^31 ? 1]"
+                       endian="Little"
+                       encoding="32-bit two's complement signed integer. The
+                                 most significant bit contains the sign."/>
+
+			<basicData name="HLAinteger64LE"
+                       size="64"
+                       interpretation="Integer in the range [-2^63, 2^63 ? 1]"
+                       endian="Little"
+                       encoding="64-bit two's complement signed integer first.
+                                 The most significant bit contains the sign."/>
+
+			<basicData name="HLAfloat32LE"
+                       size="32"
+                       interpretation="Single-precision floating point number"
+                       endian="Little"
+                       encoding="32-bit IEEE normalized single-precision format.
+                                 See IEEE Std 754-1985"/>
+
+			<basicData name="HLAfloat64LE"
+                       size="64"
+                       interpretation="Double-precision floating point number"
+                       endian="Little"
+                       encoding="64-bit IEEE normalized double-precision format.
+                                 See IEEE Std 754-1985"/>
+
+			<basicData name="HLAoctetPairLE"
+                       size="16"
+                       interpretation="16-bit value"
+                       endian="Little"
+                       encoding="Assumed to be portable among hardware devices."/>
+
+			<basicData name="HLAoctet"
+                       size="8"
+                       interpretation="8-bit value"
+                       endian="Big"
+                       encoding="Assumed to be portable among hardware devices."/>
+
+		</basicDataRepresentations>
+
+		<simpleDataTypes>
+
+			<simpleData name="HLAASCIIchar"
+                        representation="HLAoctet"
+                        semantics="Standard ASCII character (see ANSI Std X3.4-1986)."/>
+
+			<simpleData name="HLAunicodeChar"
+                        representation="HLAoctetPairBE"
+                        units="NA"
+                        resolution="NA"
+                        accuracy="NA"
+                        semantics="Unicode UTF-16 character (see The Unicode
+                                   Standard, Version 3.0)."/>
+
+			<simpleData name="HLAbyte"
+                        representation="HLAoctet"
+                        semantics="Uninterpreted 8-bit byte."/>
+
+			<simpleData name="HLAnormalizedHandle"
+                        representation="HLAinteger64BE"
+                        semantics="A normalized handle."/>
+
+			<simpleData name="HLAhandleBlockSize"
+                        representation="HLAinteger64BE"
+                        units="handles"
+                        semantics="The size of a block of handles."/>
+
+			<simpleData name="HLAinteractionSequenceNumber"
+                        representation="HLAinteger32BE"
+                        semantics="An interaction sequence number."/>
+
+			<simpleData name="HLAbufferSize"
+                        representation="HLAinteger32BE"
+                        units="bytes"
+                        semantics="A data buffer size."/>
+
+			<simpleData name="HLAbufferOffset"
+                        representation="HLAinteger32BE"
+                        units="bytes"
+                        semantics="An data buffer offset."/>
+
+		</simpleDataTypes>
+
+		<arrayDataTypes>
+
+			<arrayData name="HLAASCIIstring"
+                       dataType="HLAASCIIchar"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="ASCII String representation."/>
+
+			<arrayData name="HLAunicodeString"
+                       dataType="HLAunicodeChar"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="Unicode string representation."/>
+
+			<arrayData name="HLAopaqueData"
+                       dataType="HLAbyte"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="Uninterpreted sequence of bytes."/>
+
+			<arrayData name="HLAparameterHandleValuePairList"
+                       dataType="HLAparameterHandleValuePair"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="A list of parameter handle/value pairs."/>
+
+			<arrayData name="HLAattributeHandleValuePairList"
+                       dataType="HLAattributeHandleValuePair"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="A list of attribute handle/value pairs."/>
+
+			<arrayData name="HLAattributeHandleList"
+                       dataType="HLAnormalizedHandle"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="A list of attribute handles."/>
+			
+			<arrayData name="ConnectionList"
+                       dataType="HLAunicodeString"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="A list of URI describing connections, i.e. tcp://thishost:7777 ."/>
+
+		</arrayDataTypes>
+
+		<fixedRecordDataTypes>
+
+			<fixedRecordData name="HLAbootstrapInteractionPayload"
+                             encoding="HLAfixedRecord"
+                             semantics="The payload of the bootstrap interaction.">
+
+				<field name="federationExecutionHandle"
+                       dataType="HLAnormalizedHandle"
+                       semantics="Federation execution handle."/>
+
+				<field name="userSuppliedTag"
+                       dataType="HLAopaqueData"
+                       semantics="User-supplied tag associated with the interaction."/>
+
+				<field name="interactionClassHandle"
+                       dataType="HLAnormalizedHandle"
+                       semantics="Interaction class handle."/>
+
+				<field name="parameterHandleValuePairList"
+                       dataType="HLAparameterHandleValuePairList"
+                       semantics="List of parameter handle/value pairs."/>
+
+			</fixedRecordData>
+
+			<fixedRecordData name="HLAparameterHandleValuePair"
+                             encoding="HLAfixedRecord"
+                             semantics="Pairs a parameter handle with an encoded value.">
+
+				<field name="parameterHandle"
+                       dataType="HLAnormalizedHandle"
+                       semantics="Parameter handle."/>
+
+				<field name="parameterValue"
+                       dataType="HLAopaqueData"
+                       semantics="Encoded value."/>
+
+			</fixedRecordData>
+
+			<fixedRecordData name="HLAattributeHandleValuePair"
+                             encoding="HLAfixedRecord"
+                             semantics="Pairs an attribute handle with an encoded value.">
+
+				<field name="attributeHandle"
+                       dataType="HLAnormalizedHandle"
+                       semantics="Attribute handle."/>
+
+				<field name="attributeValue"
+                       dataType="HLAopaqueData"
+                       semantics="Encoded value."/>
+
+			</fixedRecordData>
+
+		</fixedRecordDataTypes>
+
+	</dataTypes>
+
+</objectModel>

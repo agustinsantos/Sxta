@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Nini>
+	<Section Name="PeerInfo">
+		<Key Name="PeerName" Value="Peer1" />
+		<Key Name="PeerDescription" Value="Our first child peer" />
+	</Section>
+	<Section Name="Channels">
+		<Key Name="DefaultAddr" Value="localhost" />
+		<Key Name="TcpPort" Value="7778" />
+		<Key Name="UdpPort" Value="1235" />
+		<Key Name="TcpEnable" Value="True" />
+		<Key Name="UdpEnable" Value="True" />
+	</Section>
+	<Section Name="RendezVous">
+		<Key Name="ReliableAddrs" Value="tcp://localhost:7777" />
+		<Key Name="BestEffortAddrs" Value="udp://localhost:1234|multi://224.0.0.1:8080" />
+	</Section>
+	<Section Name="Log4Net">
+		<Key Name="ConfigurationSource" Value="SxtaLog4NetConfig.xml" />
+	</Section>
+</Nini>

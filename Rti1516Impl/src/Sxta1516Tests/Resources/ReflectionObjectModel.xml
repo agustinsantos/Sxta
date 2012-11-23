@@ -1,0 +1,1131 @@
+<?xml version="1.0"?>
+
+<objectModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="HLA.xsd"
+             DTDversion="1516.2"
+             name="Reflection Object Model"
+             type="FOM"
+             version="1.0">
+
+    <objects>
+
+        <objectClass name="HLAobjectRoot"
+                     sharing="Neither">
+
+            <attribute name="HLAprivilegeToDeleteObject"
+                       dataType="NA"
+                       updateType="NA"
+                       updateCondition="NA"
+                       ownership="NoTransfer"
+                       sharing="Neither"
+                       dimensions="NA"
+                       transportation="HLAreliable"
+                       order="TimeStamp"/>
+                       
+            <objectClass name="HLAreflection"
+                         sharing="Neither"
+                         semantics="This object class is the root class of all
+                                    ROM object classes.">
+        
+                <attribute name="reflectionName"
+                           dataType="HLAunicodeString"
+                           updateType="Static"
+                           updateCondition="NA"
+                           ownership="NoTransfer"
+                           sharing="PublishSubscribe"
+                           dimensions="NA"
+                           transportation="HLAreliable"
+                           order="Receive"
+                           semantics="The name of the reflection object."/>
+                
+                <objectClass name="HLAobjectClass"
+                             sharing="PublishSubscribe"
+                             semantics="Represents an HLA object class.">
+                
+                    <attribute name="parents"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The parents of the object class."/>
+                               
+                    <attribute name="sharing"
+                               dataType="HLAsharingType"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The types of sharing permitted on the object."/>
+                    
+                    <attribute name="attributes"
+                               dataType="HLAattributeHandleList"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The handles of the object attributes."/>
+                    
+                    <attribute name="semantics"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The object semantics."/>
+                    
+                </objectClass>
+            
+                <objectClass name="HLAattribute"
+                             sharing="PublishSubscribe"
+                             semantics="Represents an HLA object attribute.">
+                
+                    <attribute name="dataType"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="Attribute data type."/>
+                
+                    <attribute name="updateType"
+                               dataType="HLAupdateType"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="Attribute update type."/>
+                
+                    <attribute name="updateCondition"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="Attribute update condition."/>
+                
+                    <attribute name="ownership"
+                               dataType="HLAownershipType"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="Attribute ownership."/>
+                
+                    <attribute name="sharing"
+                               dataType="HLAsharingType"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="Attribute sharing."/>
+                
+                    <attribute name="dimensions"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="Attribute dimensions."/>
+                
+                    <attribute name="transportation"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="Attribute transportation."/>
+                
+                    <attribute name="order"
+                               dataType="HLAorderType"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="Attribute order."/>
+                
+                    <attribute name="semantics"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="Attribute semantics."/>
+                    
+                </objectClass>
+                
+                <objectClass name="HLAinteractionClass"
+                             sharing="PublishSubscribe"
+                             semantics="Represents an HLA interaction class.">
+                
+                    <attribute name="parents"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The parents of the interaction class."/>
+                               
+                    <attribute name="sharing"
+                               dataType="HLAsharingType"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The types of sharing permitted on the interaction."/>
+                    
+                    <attribute name="dimensions"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The dimensions of the interaction."/>
+                    
+                    <attribute name="transportation"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The transportation of the interaction."/>
+                    
+                    <attribute name="order"
+                               dataType="HLAorderType"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The order of the interaction."/>
+                    
+                    <attribute name="parameters"
+                               dataType="HLAparameterHandleList"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The handles of the interaction parameters."/>
+                    
+                    <attribute name="semantics"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The semantics of the interaction."/>
+                    
+                </objectClass>
+                
+                <objectClass name="HLAparameter"
+                             sharing="PublishSubscribe"
+                             semantics="Represents an HLA interaction parameter.">
+                
+                    <attribute name="dataType"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="Parameter data type."/>
+                
+                    <attribute name="semantics"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="Parameter semantics."/>
+                    
+                </objectClass>
+                
+                <objectClass name="HLAdimension"
+                             sharing="PublishSubscribe"
+                             semantics="Represents an HLA dimension.">
+                
+                    <attribute name="dataType"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The data type of the dimension."/>
+                    
+                    <attribute name="upperBound"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The upper bound of the dimension."/>
+                    
+                    <attribute name="normalization"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The normalization of the dimension."/>
+                    
+                    <attribute name="value"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The value of the dimension."/>
+                    
+                </objectClass>
+                
+                <objectClass name="HLAsynchronization"
+                             sharing="PublishSubscribe"
+                             semantics="Represents an HLA synchronization.">
+                
+                    <attribute name="label"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The label of the synchronization."/>
+                               
+                    <attribute name="dataType"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The data type of the synchronization."/>
+                    
+                    <attribute name="capability"
+                               dataType="HLAcapabilityType"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The capability of the synchronization."/>
+                    
+                    <attribute name="semantics"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The semantics of the synchronization."/>
+                    
+                </objectClass>
+                
+                <objectClass name="HLAtransportation"
+                             sharing="PublishSubscribe"
+                             semantics="Represents an HLA transportation.">
+                
+                    <attribute name="description"
+                               dataType="HLAunicodeString"
+                               updateType="Static"
+                               updateCondition="NA"
+                               ownership="NoTransfer"
+                               sharing="PublishSubscribe"
+                               dimensions="NA"
+                               transportation="HLAreliable"
+                               order="Receive"
+                               semantics="The description of the transportation."/>
+                    
+                </objectClass>
+                
+                <objectClass name="HLAdataType"
+                             sharing="Neither"
+                             semantics="Represents an HLA data type.">
+                
+                    <objectClass name="HLAbasicRepresentation"
+                                 sharing="PublishSubscribe"
+                                 semantics="Represents an HLA basic representation.">
+                    
+                        <attribute name="size"
+                                   dataType="HLAbasicRepresentationSize"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The size of the basic representation."/>
+                        
+                        <attribute name="endian"
+                                   dataType="HLAendianType"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The byte ordering of the basic representation."/>
+                        
+                        <attribute name="interpretation"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The interpretation of the basic representation."/>
+                        
+                        <attribute name="encoding"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The encoding of the basic representation."/>
+                        
+                    </objectClass>
+                    
+                    <objectClass name="HLAsimpleDataType"
+                                 sharing="PublishSubscribe"
+                                 semantics="Represents an HLA simple data type.">
+                    
+                        <attribute name="representation"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The representation of the simple type."/>
+                        
+                        <attribute name="units"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The units of the simple type."/>
+                        
+                        <attribute name="resolution"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The resolution of the simple type."/>
+                        
+                        <attribute name="accuracy"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The accuracy of the simple type."/>
+                        
+                        <attribute name="semantics"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The semantics of the simple type."/>
+                        
+                    </objectClass>
+                    
+                    <objectClass name="HLAenumeratedDataType"
+                                 sharing="PublishSubscribe"
+                                 semantics="Represents an HLA enumerated data type.">
+                    
+                        <attribute name="representation"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The representation of the enumerated type."/>
+                        
+                        <attribute name="enumerators"
+                                   dataType="HLAenumeratorList"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The enumerators of the enumerated type."/>
+                        
+                        <attribute name="semantics"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The semantics of the enumerated type."/>
+                        
+                    </objectClass>
+                    
+                    <objectClass name="HLAarrayDataType"
+                                 sharing="PublishSubscribe"
+                                 semantics="Represents an HLA array data type.">
+                    
+                        <attribute name="dataType"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The element type of the array type."/>
+                        
+                        <attribute name="cardinality"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The cardinality of the array type."/>
+                        
+                        <attribute name="encoding"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The encoding of the array type."/>
+                        
+                        <attribute name="semantics"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The semantics of the array type."/>
+                        
+                    </objectClass>
+                    
+                    <objectClass name="HLAfixedRecordDataType"
+                                 sharing="PublishSubscribe"
+                                 semantics="Represents an HLA fixed record data type.">
+                    
+                        <attribute name="fields"
+                                   dataType="HLAfieldList"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The fields of the fixed record type."/>
+                        
+                        <attribute name="encoding"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The encoding of the fixed record type."/>
+                        
+                        <attribute name="semantics"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The semantics of the fixed record type."/>
+                        
+                    </objectClass>
+                    
+                    <objectClass name="HLAvariantRecordDataType"
+                                 sharing="PublishSubscribe"
+                                 semantics="Represents an HLA variant record data type.">
+                    
+                        <attribute name="discriminant"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The discriminant of the variant record type."/>
+                        
+                        <attribute name="dataType"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The data type of the variant record type."/>
+                        
+                        <attribute name="alternatives"
+                                   dataType="HLAalternativeList"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The alternatives of the variant record type."/>
+                        
+                        <attribute name="encoding"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The encoding of the variant record type."/>
+                        
+                        <attribute name="semantics"
+                                   dataType="HLAunicodeString"
+                                   updateType="Static"
+                                   updateCondition="NA"
+                                   ownership="NoTransfer"
+                                   sharing="PublishSubscribe"
+                                   dimensions="NA"
+                                   transportation="HLAreliable"
+                                   order="Receive"
+                                   semantics="The semantics of the variant record type."/>
+                        
+                    </objectClass>
+                    
+                </objectClass>
+                
+            </objectClass>
+            
+        </objectClass>
+        
+    </objects>
+    
+    <interactions>
+
+        <interactionClass name="HLAinteractionRoot"
+                          sharing="Neither"
+                          dimensions="NA"
+                          transportation="HLAreliable"
+                          order="Receive">
+
+            <interactionClass name="HLAreflection"
+                              sharing="Neither"
+                              dimensions="NA"
+                              transportation="HLAreliable"
+                              order="Receive"
+                              semantics="Root class of ROM interactions.">
+            
+                <interactionClass name="HLAmergeFDD"
+                                  sharing="PublishSubscribe"
+                                  transportation="HLAreliable"
+                                  order="Receive"
+                                  semantics="Merges the contents of a new federation description
+                                             document into the FOM.">
+                
+                    <parameter name="federationDescriptionDocument"
+                               dataType="HLAopaqueData"
+                               semantics="The encoded federation description document."/>
+                    
+                </interactionClass>
+                
+            </interactionClass>
+            
+        </interactionClass>
+        
+    </interactions>
+    
+    <transportations>
+
+        <transportation name="HLAreliable"
+                        description="Provide reliable delivery of data in the
+                                     sense that TCP/IP delivers its data reliably."/>
+
+        <transportation name="HLAbestEffort"
+                        description="Make an effort to deliver data in the sense
+                                     that UDP provides best-effort delivery."/>
+
+    </transportations>
+    
+    <dataTypes>
+    
+        <basicDataRepresentations>
+
+            <basicData name="HLAinteger16BE"
+                       size="16"
+                       interpretation="Integer in the range [-2^15, 2^15 ? 1]"
+                       endian="Big"
+                       encoding="16-bit two's complement signed integer. The
+                                 most significant bit contains the sign."/>
+
+            <basicData name="HLAinteger32BE"
+                       size="32"
+                       interpretation="Integer in the range [-2^31, 2^31 ? 1]"
+                       endian="Big"
+                       encoding="32-bit two's complement signed integer. The
+                                 most significant bit contains the sign."/>
+
+            <basicData name="HLAinteger64BE"
+                       size="64"
+                       interpretation="Integer in the range [-2^63, 2^63 ? 1]"
+                       endian="Big"
+                       encoding="64-bit two's complement signed integer first.
+                                 The most significant bit contains the sign."/>
+
+            <basicData name="HLAfloat32BE"
+                       size="32"
+                       interpretation="Single-precision floating point number"
+                       endian="Big"
+                       encoding="32-bit IEEE normalized single-precision format.
+                                 See IEEE Std 754-1985."/>
+
+            <basicData name="HLAfloat64BE"
+                       size="64"
+                       interpretation="Double-precision floating point number"
+                       endian="Big"
+                       encoding="64-bit IEEE normalized double-precision format.
+                                 See IEEE Std 754-1985."/>
+
+            <basicData name="HLAoctetPairBE"
+                       size="16"
+                       interpretation="16-bit value"
+                       endian="Big"
+                       encoding="Assumed to be portable among hardware devices."/>
+
+            <basicData name="HLAinteger16LE"
+                       size="16"
+                       interpretation="Integer in the range [-2^15, 2^15 ? 1]"
+                       endian="Little"
+                       encoding="16-bit two's complement signed integer. The
+                                 most significant bit contains the sign."/>
+
+            <basicData name="HLAinteger32LE"
+                       size="32"
+                       interpretation="Integer in the range [-2^31, 2^31 ? 1]"
+                       endian="Little"
+                       encoding="32-bit two's complement signed integer. The
+                                 most significant bit contains the sign."/>
+
+            <basicData name="HLAinteger64LE"
+                       size="64"
+                       interpretation="Integer in the range [-2^63, 2^63 ? 1]"
+                       endian="Little"
+                       encoding="64-bit two's complement signed integer first.
+                                 The most significant bit contains the sign."/>
+
+            <basicData name="HLAfloat32LE"
+                       size="32"
+                       interpretation="Single-precision floating point number"
+                       endian="Little"
+                       encoding="32-bit IEEE normalized single-precision format.
+                                 See IEEE Std 754-1985"/>
+
+            <basicData name="HLAfloat64LE"
+                       size="64"
+                       interpretation="Double-precision floating point number"
+                       endian="Little"
+                       encoding="64-bit IEEE normalized double-precision format.
+                                 See IEEE Std 754-1985"/>
+
+            <basicData name="HLAoctetPairLE"
+                       size="16"
+                       interpretation="16-bit value"
+                       endian="Little"
+                       encoding="Assumed to be portable among hardware devices."/>
+
+            <basicData name="HLAoctet"
+                       size="8"
+                       interpretation="8-bit value"
+                       endian="Big"
+                       encoding="Assumed to be portable among hardware devices."/>
+
+        </basicDataRepresentations>
+        
+        <simpleDataTypes>
+
+            <simpleData name="HLAASCIIchar"
+                        representation="HLAoctet"
+                        semantics="Standard ASCII character (see ANSI Std X3.4-1986)."/>
+
+            <simpleData name="HLAunicodeChar"
+                        representation="HLAoctetPairBE"
+                        units="NA"
+                        resolution="NA"
+                        accuracy="NA"
+                        semantics="Unicode UTF-16 character (see The Unicode
+                                   Standard, Version 3.0)."/>
+
+            <simpleData name="HLAbyte"
+                        representation="HLAoctet"
+                        semantics="Uninterpreted 8-bit byte."/>
+
+            <simpleData name="HLAnormalizedHandle"
+                        representation="HLAinteger64BE"
+                        semantics="A normalized handle."/>
+
+            <simpleData name="HLAbasicRepresentationSize"
+                        representation="HLAinteger32BE"
+                        units="bits"/>
+                        
+        </simpleDataTypes>
+        
+        <enumeratedDataTypes>
+        
+            <enumeratedData name="HLAboolean"
+                            representation="HLAinteger32BE"
+                            semantics="Standard boolean type.">
+
+                <enumerator name="HLAfalse"
+                            values="0"/>
+
+                <enumerator name="HLAtrue"
+                            values="1"/>
+
+            </enumeratedData>
+            
+            <enumeratedData name="HLAendianType"
+                            representation="HLAinteger32BE"
+                            semantics="Endian type to be used for describing basic
+                                       representations.">
+
+                <enumerator name="Big"
+                            values="0"/>
+
+                <enumerator name="Little"
+                            values="1"/>
+
+            </enumeratedData>
+            
+            <enumeratedData name="HLAorderType"
+                            representation="HLAinteger32BE"
+                            semantics="Order type to be used for sending attributes
+                                       or interactions.">
+
+                <enumerator name="Receive"
+                            values="0"/>
+
+                <enumerator name="TimeStamp"
+                            values="1"/>
+
+            </enumeratedData>
+            
+            <enumeratedData name="HLAownershipType"
+                            representation="HLAinteger32BE"
+                            semantics="Ownership type to be used for sending attributes.">
+
+                <enumerator name="Divest"
+                            values="0"/>
+
+                <enumerator name="Acquire"
+                            values="1"/>
+
+                <enumerator name="DivestAcquire"
+                            values="2"/>
+                            
+                <enumerator name="NoTransfer"
+                            values="3"/>
+                            
+            </enumeratedData>
+            
+            <enumeratedData name="HLAsharingType"
+                            representation="HLAinteger32BE"
+                            semantics="Sharing type to be used for sending attributes
+                                       or interactions.">
+
+                <enumerator name="Publish"
+                            values="0"/>
+
+                <enumerator name="Subscribe"
+                            values="1"/>
+
+                <enumerator name="PublishSubscribe"
+                            values="2"/>
+                            
+                <enumerator name="Neither"
+                            values="3"/>
+                            
+            </enumeratedData>
+            
+            <enumeratedData name="HLAupdateType"
+                            representation="HLAinteger32BE"
+                            semantics="Update type to be used for sending attributes.">
+
+                <enumerator name="Static"
+                            values="0"/>
+
+                <enumerator name="Periodic"
+                            values="1"/>
+
+                <enumerator name="Conditional"
+                            values="2"/>
+                            
+                <enumerator name="NA"
+                            values="3"/>
+                            
+            </enumeratedData>
+            
+            <enumeratedData name="HLAcapabilityType"
+                            representation="HLAinteger32BE"
+                            semantics="Capability type to be used for synchronizations.">
+
+                <enumerator name="Register"
+                            values="0"/>
+
+                <enumerator name="Achieve"
+                            values="1"/>
+
+                <enumerator name="RegisterAchieve"
+                            values="2"/>
+                            
+                <enumerator name="NoSynch"
+                            values="3"/>
+                            
+            </enumeratedData>
+            
+        </enumeratedDataTypes>
+        
+        <arrayDataTypes>
+        
+            <arrayData name="HLAASCIIstring"
+                       dataType="HLAASCIIchar"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="ASCII String representation."/>
+
+            <arrayData name="HLAunicodeString"
+                       dataType="HLAunicodeChar"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="Unicode string representation."/>
+
+            <arrayData name="HLAopaqueData"
+                       dataType="HLAbyte"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="Uninterpreted sequence of bytes."/>
+            
+            <arrayData name="HLAattributeHandleList"
+                       dataType="HLAnormalizedHandle"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="A list of attribute handles."/>
+            
+            <arrayData name="HLAparameterHandleList"
+                       dataType="HLAnormalizedHandle"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="A list of parameter handles."/>
+                       
+            <arrayData name="HLAenumeratorList"
+                       dataType="HLAenumerator"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="List of enumerated type enumerators."/>
+                       
+            <arrayData name="HLAfieldList"
+                       dataType="HLAfield"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="List of fixed record type fields."/>
+
+            <arrayData name="HLAalternativeList"
+                       dataType="HLAalternative"
+                       cardinality="Dynamic"
+                       encoding="HLAvariableArray"
+                       semantics="List of variant record type alternatives."/>
+                       
+        </arrayDataTypes>
+        
+        <fixedRecordDataTypes>
+        
+            <fixedRecordData name="HLAenumerator"
+                             encoding="HLAfixedRecord"
+                             semantics="Enumerated type enumerator.">
+            
+                <field name="name"
+                       dataType="HLAunicodeString"
+                       semantics="Enumerator name."/>
+                       
+                <field name="values"
+                       dataType="HLAunicodeString"
+                       semantics="Enumerator values."/>
+                
+            </fixedRecordData>
+            
+            <fixedRecordData name="HLAfield"
+                             encoding="HLAfixedRecord"
+                             semantics="Fixed record type field.">
+            
+                <field name="name"
+                       dataType="HLAunicodeString"
+                       semantics="Field name."/>
+                       
+                <field name="dataType"
+                       dataType="HLAunicodeString"
+                       semantics="Field data type."/>
+                
+                <field name="semantics"
+                       dataType="HLAunicodeString"
+                       semantics="Field semantics."/>
+                
+            </fixedRecordData>
+            
+            <fixedRecordData name="HLAalternative"
+                             encoding="HLAfixedRecord"
+                             semantics="Variant record type alternative.">
+            
+                <field name="enumerator"
+                       dataType="HLAunicodeString"
+                       semantics="Alternative enumerator."/>
+                       
+                <field name="name"
+                       dataType="HLAunicodeString"
+                       semantics="Alternative name."/>
+                       
+                <field name="dataType"
+                       dataType="HLAunicodeString"
+                       semantics="Alternative data type."/>
+                
+                <field name="semantics"
+                       dataType="HLAunicodeString"
+                       semantics="Alternative semantics."/>
+                
+            </fixedRecordData>
+            
+        </fixedRecordDataTypes>
+        
+    </dataTypes>
+    
+</objectModel>

@@ -1,0 +1,31 @@
+<Plugin name       = "HelloWorldSample"
+       author      = "Agustin Santos"
+       copyright   = "GPL"
+       url         = "http://www.sxta.net"
+       description = "A sample plugin with the traditional HelloWorld Simulation"
+       version     = "0.0.1">
+
+	<Runtime>
+		<Import assembly="Samples.dll"/>
+	</Runtime>
+
+	<Extension path = "/Plugins">
+		<Module id = "WorldSimulation" class = "ExternalSamples.WorldSimulation">
+			<ObjectModel>
+				<FomModel From="File" Uri="Resources/ExternalSamplesObjectModel.xml"/>
+				<FomModel From="Assembly"/>
+			</ObjectModel>
+			<Channels>
+				<TcpChannel Name="AChannelReliable" Address="localhost" Port="7777"/>
+				<UdpChannel Name="AChannelBestEffort" Address="localhost" Port="1234"/>
+				<MultiChannel Name="AChannelMulticast" Address="224.0.0.1" Port="8080"/>
+				<Mapping>
+					<Transport Name="HLAreliable" Use="AChannelReliable" />
+					<Transport Name="HLAbestEffort" Use="AChannelBestEffort" />
+					<Transport Name="Multicast" Use="AChannelMulticast" />
+				</Mapping>
+			</Channels>
+		</Module>
+	</Extension>
+
+</Plugin>

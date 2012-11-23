@@ -1,0 +1,1533 @@
+<?xml version="1.0"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            
+   <xsd:annotation>
+    
+        <xsd:documentation>Schemata for HLA documents.</xsd:documentation>
+        
+    </xsd:annotation> 
+    
+    <xsd:simpleType name="objectModelType">
+    
+        <xsd:annotation>
+    
+            <xsd:documentation>Enumerated object model type.</xsd:documentation>
+        
+        </xsd:annotation>
+        
+        <xsd:restriction base="xsd:string">
+                    
+            <xsd:enumeration value="FOM"/>
+                        
+            <xsd:enumeration value="SOM"/>
+            
+        </xsd:restriction>
+                    
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="sharingType">
+    
+        <xsd:annotation>
+    
+            <xsd:documentation>Enumerated sharing type.</xsd:documentation>
+        
+        </xsd:annotation>
+        
+        <xsd:restriction base="xsd:string">
+                    
+            <xsd:enumeration value="Publish"/>
+                        
+            <xsd:enumeration value="Subscribe"/>
+            
+            <xsd:enumeration value="PublishSubscribe"/>
+            
+            <xsd:enumeration value="Neither"/>
+            
+        </xsd:restriction>
+                    
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="updateType">
+    
+        <xsd:annotation>
+    
+            <xsd:documentation>Enumerated update type.</xsd:documentation>
+        
+        </xsd:annotation>
+        
+        <xsd:restriction base="xsd:string">
+                    
+            <xsd:enumeration value="Static"/>
+                        
+            <xsd:enumeration value="Periodic"/>
+            
+            <xsd:enumeration value="Conditional"/>
+            
+            <xsd:enumeration value="NA"/>
+            
+        </xsd:restriction>
+                    
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="ownershipType">
+    
+        <xsd:annotation>
+    
+            <xsd:documentation>Enumerated ownership type.</xsd:documentation>
+        
+        </xsd:annotation>
+        
+        <xsd:restriction base="xsd:string">
+                    
+            <xsd:enumeration value="Divest"/>
+                        
+            <xsd:enumeration value="Acquire"/>
+            
+            <xsd:enumeration value="DivestAcquire"/>
+            
+            <xsd:enumeration value="NoTransfer"/>
+            
+        </xsd:restriction>
+                    
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="orderType">
+    
+        <xsd:annotation>
+    
+            <xsd:documentation>Enumerated order type.</xsd:documentation>
+        
+        </xsd:annotation>
+        
+        <xsd:restriction base="xsd:string">
+                    
+            <xsd:enumeration value="Receive"/>
+                        
+            <xsd:enumeration value="TimeStamp"/>
+            
+        </xsd:restriction>
+                    
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="capabilityType">
+    
+        <xsd:annotation>
+    
+            <xsd:documentation>Enumerated capability type.</xsd:documentation>
+        
+        </xsd:annotation>
+        
+        <xsd:restriction base="xsd:string">
+                    
+            <xsd:enumeration value="Register"/>
+                        
+            <xsd:enumeration value="Achieve"/>
+            
+            <xsd:enumeration value="RegisterAchieve"/>
+            
+            <xsd:enumeration value="NoSynch"/>
+            
+            <xsd:enumeration value="NA"/>
+            
+        </xsd:restriction>
+                    
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="switchType">
+    
+        <xsd:annotation>
+    
+            <xsd:documentation>Enumerated switch type.</xsd:documentation>
+        
+        </xsd:annotation>
+        
+        <xsd:restriction base="xsd:string">
+                    
+            <xsd:enumeration value="Enabled"/>
+                        
+            <xsd:enumeration value="Disabled"/>
+            
+            <xsd:enumeration value="NA"/>
+            
+        </xsd:restriction>
+                    
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="endianType">
+    
+        <xsd:annotation>
+    
+            <xsd:documentation>Enumerated endian type.</xsd:documentation>
+        
+        </xsd:annotation>
+        
+        <xsd:restriction base="xsd:string">
+                    
+            <xsd:enumeration value="Big"/>
+                        
+            <xsd:enumeration value="Little"/>
+            
+        </xsd:restriction>
+                    
+    </xsd:simpleType>
+    
+    <xsd:complexType name="objectClassType">
+                         
+        <xsd:annotation>
+    
+            <xsd:documentation>Object class type.</xsd:documentation>
+        
+        </xsd:annotation>
+                                 
+        <xsd:sequence>
+                        
+            <xsd:element name="attribute"
+                         minOccurs="0"
+                         maxOccurs="unbounded">
+                
+                <xsd:annotation>
+    
+                    <xsd:documentation>An attribute associated with an object class.</xsd:documentation>
+        
+                </xsd:annotation>
+             
+                <xsd:complexType>
+                
+                    <xsd:attribute name="name"
+                                   type="xsd:NMTOKEN"
+                                   use="required"/>
+                                
+                    <xsd:attribute name="nameNotes"
+                                   type="xsd:IDREFS"/>
+                                    
+                    <xsd:attribute name="dataType"
+                                   type="xsd:NMTOKEN"/>
+                                
+                    <xsd:attribute name="dataTypeNotes"
+                                   type="xsd:IDREFS"/>
+                    
+                    <xsd:attribute name="updateType"
+                                   type="updateType"/>
+                                
+                    <xsd:attribute name="updateTypeNotes"
+                                   type="xsd:IDREFS"/>
+                    
+                    <xsd:attribute name="updateCondition"
+                                   type="xsd:string"/>
+                                                   
+                    <xsd:attribute name="updateConditionNotes"
+                                   type="xsd:IDREFS"/>
+                    
+                    <xsd:attribute name="ownership"
+                                   type="ownershipType"/>
+                                
+                    <xsd:attribute name="ownershipNotes"
+                                   type="xsd:IDREFS"/>
+                                   
+                    <xsd:attribute name="sharing"
+                                   type="sharingType"/>
+                                
+                    <xsd:attribute name="sharingNotes"
+                                   type="xsd:IDREFS"/>
+                    
+                    <xsd:attribute name="dimensions"
+                                   type="xsd:NMTOKENS"/>
+                                
+                    <xsd:attribute name="dimensionsNotes"
+                                   type="xsd:IDREFS"/>
+                    
+                    <xsd:attribute name="transportation"
+                                   type="xsd:IDREF"/>
+                                
+                    <xsd:attribute name="transportationNotes"
+                                   type="xsd:IDREFS"/>
+                    
+                    <xsd:attribute name="order"
+                                   type="orderType"/>
+                                
+                    <xsd:attribute name="orderNotes"
+                                   type="xsd:IDREFS"/>
+                                   
+                    <xsd:attribute name="semantics"
+                                   type="xsd:string"/>
+                                                   
+                    <xsd:attribute name="semanticsNotes"
+                                   type="xsd:IDREFS"/>
+                    
+                    <xsd:anyAttribute/>
+                    
+                </xsd:complexType>
+                                                 
+            </xsd:element>
+            
+            <xsd:element name="objectClass"
+                         type="objectClassType"
+                         minOccurs="0"
+                         maxOccurs="unbounded"/>
+
+        </xsd:sequence>
+          
+        <xsd:attribute name="name"
+                       type="xsd:NMTOKEN"
+                       use="required"/>
+                                
+        <xsd:attribute name="nameNotes"
+                       type="xsd:IDREFS"/>
+                                    
+        <xsd:attribute name="sharing"
+                       type="sharingType"/>
+                                
+        <xsd:attribute name="sharingNotes"
+                       type="xsd:IDREFS"/>
+                                                   
+        <xsd:attribute name="semantics"
+                       type="xsd:string"/>
+                                                   
+        <xsd:attribute name="semanticsNotes"
+                       type="xsd:IDREFS"/>
+                                    
+        <xsd:anyAttribute/>
+                                       
+    </xsd:complexType>
+    
+    <xsd:complexType name="interactionClassType">
+                         
+        <xsd:annotation>
+    
+            <xsd:documentation>Interaction class type.</xsd:documentation>
+        
+        </xsd:annotation>
+         
+        <xsd:sequence>
+                        
+            <xsd:element name="parameter"
+                         minOccurs="0"
+                         maxOccurs="unbounded">
+                
+                <xsd:annotation>
+    
+                    <xsd:documentation>A parameter associated with an interaction class.</xsd:documentation>
+        
+                </xsd:annotation>
+             
+                <xsd:complexType>
+                
+                    <xsd:attribute name="name"
+                                   type="xsd:NMTOKEN"
+                                   use="required"/>
+                                
+                    <xsd:attribute name="nameNotes"
+                                   type="xsd:IDREFS"/>
+                                    
+                    <xsd:attribute name="dataType"
+                                   type="xsd:NMTOKEN"/>
+                                
+                    <xsd:attribute name="dataTypeNotes"
+                                   type="xsd:IDREFS"/>
+                    
+                    <xsd:attribute name="semantics"
+                                   type="xsd:string"/>
+                                                   
+                    <xsd:attribute name="semanticsNotes"
+                                   type="xsd:IDREFS"/>
+                    
+                    <xsd:anyAttribute/>
+                    
+                </xsd:complexType>
+                                                 
+            </xsd:element>
+            
+            <xsd:element name="interactionClass"
+                         type="interactionClassType"
+                         minOccurs="0"
+                         maxOccurs="unbounded"/>
+
+        </xsd:sequence>
+              
+        <xsd:attribute name="name"
+                       type="xsd:NMTOKEN"
+                       use="required"/>
+                                
+        <xsd:attribute name="nameNotes"
+                       type="xsd:IDREFS"/>
+                                    
+        <xsd:attribute name="sharing"
+                       type="sharingType"/>
+                                
+        <xsd:attribute name="sharingNotes"
+                       type="xsd:IDREFS"/>
+        
+        <xsd:attribute name="dimensions"
+                       type="xsd:NMTOKENS"/>
+                                
+        <xsd:attribute name="dimensionsNotes"
+                       type="xsd:IDREFS"/>
+        
+        <xsd:attribute name="transportation"
+                       type="xsd:IDREF"/>
+                                
+        <xsd:attribute name="transportationNotes"
+                       type="xsd:IDREFS"/>
+        
+        <xsd:attribute name="order"
+                       type="orderType"/>
+                                
+        <xsd:attribute name="orderNotes"
+                       type="xsd:IDREFS"/>
+                                                                         
+        <xsd:attribute name="semantics"
+                       type="xsd:string"/>
+                                                   
+        <xsd:attribute name="semanticsNotes"
+                       type="xsd:IDREFS"/>
+                                    
+        <xsd:anyAttribute/>
+                            
+    </xsd:complexType>
+    
+    <xsd:complexType name="typeReferenceType">
+    
+        <xsd:annotation>
+    
+            <xsd:documentation>Type reference type.</xsd:documentation>
+        
+        </xsd:annotation>
+        
+        <xsd:attribute name="dataType"
+                       type="xsd:NMTOKEN"
+                       use="required"/>
+                                
+        <xsd:attribute name="dataTypeNotes"
+                       type="xsd:IDREFS"/>
+                    
+        <xsd:attribute name="semantics"
+                       type="xsd:string"/>
+                                                   
+        <xsd:attribute name="semanticsNotes"
+                       type="xsd:IDREFS"/>
+                                   
+        <xsd:anyAttribute/>
+                                   
+    </xsd:complexType>
+                
+    <xsd:element name="objectModel">
+    
+        <xsd:annotation>
+    
+            <xsd:documentation>Describes an HLA object model.</xsd:documentation>
+        
+        </xsd:annotation>
+        
+        <xsd:complexType>
+        
+            <xsd:sequence>
+            
+                <xsd:element name="objects"
+                             minOccurs="0">
+                
+                    <xsd:annotation>
+    
+                        <xsd:documentation>Shared object classes.</xsd:documentation>
+        
+                    </xsd:annotation>
+                
+                    <xsd:complexType>
+                    
+                        <xsd:sequence>
+                        
+                            <xsd:element name="objectClass"
+                                         type="objectClassType"
+                                         maxOccurs="unbounded"/>
+                        
+                        </xsd:sequence>
+                        
+                        <xsd:anyAttribute/>
+                        
+                    </xsd:complexType>
+                    
+                </xsd:element>
+                
+                <xsd:element name="interactions"
+                             minOccurs="0">
+                
+                    <xsd:annotation>
+    
+                        <xsd:documentation>Interaction classes.</xsd:documentation>
+        
+                    </xsd:annotation>
+                    
+                    <xsd:complexType>
+                    
+                        <xsd:sequence>
+                        
+                            <xsd:element name="interactionClass"
+                                         type="interactionClassType"
+                                         maxOccurs="unbounded"/>
+                        
+                        </xsd:sequence>
+                        
+                        <xsd:anyAttribute/>
+                        
+                    </xsd:complexType>
+                    
+                </xsd:element>
+                
+                <xsd:element name="dimensions"
+                             minOccurs="0">
+                
+                    <xsd:annotation>
+    
+                        <xsd:documentation>Dimension definitions.</xsd:documentation>
+        
+                    </xsd:annotation>
+                    
+                    <xsd:complexType>
+                    
+                        <xsd:sequence>
+                        
+                            <xsd:element name="dimension"
+                                         maxOccurs="unbounded">
+                                
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>A dimension definition.</xsd:documentation>
+        
+                                </xsd:annotation>
+                    
+                                <xsd:complexType>
+                                
+                                    <xsd:attribute name="name"
+                                                   type="xsd:NMTOKEN"
+                                                   use="required"/>
+                                
+                                    <xsd:attribute name="nameNotes"
+                                                   type="xsd:IDREFS"/>
+                                    
+                                    <xsd:attribute name="dataType"
+                                                   type="xsd:NMTOKEN"/>
+                                
+                                    <xsd:attribute name="dataTypeNotes"
+                                                   type="xsd:IDREFS"/>
+                                                   
+                                    <xsd:attribute name="upperBound"
+                                                   type="xsd:string"/>
+                                
+                                    <xsd:attribute name="upperBoundNotes"
+                                                   type="xsd:IDREFS"/>
+                                
+                                    <xsd:attribute name="normalization"
+                                                   type="xsd:string"/>
+                                
+                                    <xsd:attribute name="normalizationNotes"
+                                                   type="xsd:IDREFS"/>
+                                    
+                                    <xsd:attribute name="value"
+                                                   type="xsd:string"/>
+                                
+                                    <xsd:attribute name="valueNotes"
+                                                   type="xsd:IDREFS"/>
+                                
+                                    <xsd:anyAttribute/>
+                                    
+                                </xsd:complexType>
+                                            
+                            </xsd:element>
+                            
+                        </xsd:sequence>
+                        
+                        <xsd:anyAttribute/>
+                        
+                    </xsd:complexType>
+                    
+                </xsd:element>
+                
+                <xsd:element name="time"
+                             minOccurs="0">
+                
+                    <xsd:annotation>
+    
+                        <xsd:documentation>Time definitions.</xsd:documentation>
+        
+                    </xsd:annotation>
+                    
+                    <xsd:complexType>
+                    
+                        <xsd:sequence>
+                        
+                            <xsd:element name="timeStamp"
+                                         type="typeReferenceType">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Timestamp type.</xsd:documentation>
+        
+                                </xsd:annotation>
+                    
+                            </xsd:element>
+                            
+                            <xsd:element name="lookahead"
+                                         type="typeReferenceType">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Lookahead type.</xsd:documentation>
+        
+                                </xsd:annotation>
+                    
+                            </xsd:element>
+                            
+                        </xsd:sequence>
+                        
+                        <xsd:anyAttribute/>
+                        
+                    </xsd:complexType>
+                    
+                </xsd:element>
+                
+                <xsd:element name="tags"
+                             minOccurs="0">
+                
+                    <xsd:annotation>
+    
+                        <xsd:documentation>Tag definitions.</xsd:documentation>
+        
+                    </xsd:annotation>
+                    
+                    <xsd:complexType>
+                    
+                        <xsd:sequence>
+                        
+                            <xsd:element name="updateReflectTag"
+                                         type="typeReferenceType">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Update/reflect tag type.</xsd:documentation>
+        
+                                </xsd:annotation>
+                    
+                            </xsd:element>
+                            
+                            <xsd:element name="sendReceiveTag"
+                                         type="typeReferenceType">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Send/receive tag type.</xsd:documentation>
+        
+                                </xsd:annotation>
+                    
+                            </xsd:element>
+                            
+                            <xsd:element name="deleteRemoveTag"
+                                         type="typeReferenceType">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Delete/remove tag type.</xsd:documentation>
+        
+                                </xsd:annotation>
+                    
+                            </xsd:element>
+                            
+                            <xsd:element name="divestitureRequestTag"
+                                         type="typeReferenceType">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Divestiture request tag type.</xsd:documentation>
+        
+                                </xsd:annotation>
+                    
+                            </xsd:element>
+                            
+                            <xsd:element name="divestitureCompletionTag"
+                                         type="typeReferenceType">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Divestiture completion tag type.</xsd:documentation>
+        
+                                </xsd:annotation>
+                    
+                            </xsd:element>
+                            
+                            <xsd:element name="acquisitionRequestTag"
+                                         type="typeReferenceType">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Acquisition request tag type.</xsd:documentation>
+        
+                                </xsd:annotation>
+                    
+                            </xsd:element>
+                            
+                            <xsd:element name="requestUpdateTag"
+                                         type="typeReferenceType">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Update request tag type.</xsd:documentation>
+        
+                                </xsd:annotation>
+                    
+                            </xsd:element>
+                        
+                        </xsd:sequence>
+                    
+                        <xsd:anyAttribute/>
+                        
+                    </xsd:complexType>
+                    
+                </xsd:element>
+                
+                <xsd:element name="synchronizations"
+                             minOccurs="0">
+                
+                    <xsd:annotation>
+    
+                        <xsd:documentation>Synchronization definitions.</xsd:documentation>
+        
+                    </xsd:annotation>
+                    
+                    <xsd:complexType>
+                    
+                        <xsd:sequence>
+                        
+                            <xsd:element name="synchronization"
+                                         maxOccurs="unbounded">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>A synchronization definition.</xsd:documentation>
+        
+                                </xsd:annotation>
+                            
+                                <xsd:complexType>
+                                
+                                    <xsd:attribute name="label"
+                                                   type="xsd:NMTOKEN"
+                                                   use="required"/>
+                                
+                                    <xsd:attribute name="labelNotes"
+                                                   type="xsd:IDREFS"/>
+                                    
+                                    <xsd:attribute name="dataType"
+                                                   type="xsd:NMTOKEN"/>
+                                
+                                    <xsd:attribute name="dataTypeNotes"
+                                                   type="xsd:IDREFS"/>
+                                    
+                                    <xsd:attribute name="capability"
+                                                   type="capabilityType"/>
+                                
+                                    <xsd:attribute name="capabilityNotes"
+                                                   type="xsd:IDREFS"/>
+                                                   
+                                    <xsd:attribute name="semantics"
+                                                   type="xsd:string"/>
+                                                   
+                                    <xsd:attribute name="semanticsNotes"
+                                                   type="xsd:IDREFS"/>
+                                    
+                                    <xsd:anyAttribute/>
+                                    
+                                </xsd:complexType>
+                                
+                            </xsd:element>
+                        
+                        </xsd:sequence>
+                        
+                        <xsd:anyAttribute/>
+                        
+                    </xsd:complexType>
+                    
+                </xsd:element>
+                
+                <xsd:element name="transportations"
+                             minOccurs="0">
+                
+                    <xsd:annotation>
+    
+                        <xsd:documentation>Transportation definitions.</xsd:documentation>
+        
+                    </xsd:annotation>
+                    
+                    <xsd:complexType>
+                    
+                        <xsd:sequence>
+                        
+                            <xsd:element name="transportation"
+                                         maxOccurs="unbounded">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>A transportation definition.</xsd:documentation>
+        
+                                </xsd:annotation>
+                            
+                                <xsd:complexType>
+                                
+                                    <xsd:attribute name="name"
+                                                   type="xsd:ID"
+                                                   use="required"/>
+                                
+                                    <xsd:attribute name="nameNotes"
+                                                   type="xsd:IDREFS"/>
+                                                   
+                                    <xsd:attribute name="description"
+                                                   type="xsd:string"/>
+                                                   
+                                    <xsd:attribute name="descriptionNotes"
+                                                   type="xsd:IDREFS"/>
+                                    
+                                    <xsd:anyAttribute/>
+                                    
+                                </xsd:complexType>
+                                
+                            </xsd:element>
+                        
+                        </xsd:sequence>
+                        
+                        <xsd:anyAttribute/>
+                        
+                    </xsd:complexType>
+                    
+                </xsd:element>
+                
+                <xsd:element name="switches"
+                             minOccurs="0">
+                
+                    <xsd:annotation>
+    
+                        <xsd:documentation>Switch values.</xsd:documentation>
+        
+                    </xsd:annotation>
+                    
+                    <xsd:complexType>
+                    
+                        <xsd:attribute name="autoProvide"
+                                       type="switchType"/>
+            
+                        <xsd:attribute name="autoProvideNotes"
+                                       type="xsd:IDREFS"/>
+            
+                        <xsd:attribute name="conveyRegionDesignatorSets"
+                                       type="switchType"/>
+            
+                        <xsd:attribute name="conveyRegionDesignatorSetsNotes"
+                                       type="xsd:IDREFS"/>
+                                       
+                        <xsd:attribute name="attributeScopeAdvisory"
+                                       type="switchType"/>
+            
+                        <xsd:attribute name="attributeScopeAdvisoryNotes"
+                                       type="xsd:IDREFS"/>
+                                       
+                        <xsd:attribute name="attributeRelevanceAdvisory"
+                                       type="switchType"/>
+            
+                        <xsd:attribute name="attributeRelevanceAdvisoryNotes"
+                                       type="xsd:IDREFS"/>
+                                       
+                        <xsd:attribute name="objectClassRelevanceAdvisory"
+                                       type="switchType"/>
+            
+                        <xsd:attribute name="objectClassRelevanceAdvisoryNotes"
+                                       type="xsd:IDREFS"/>
+                                       
+                        <xsd:attribute name="interactionRelevanceAdvisory"
+                                       type="switchType"/>
+            
+                        <xsd:attribute name="interactionRelevanceAdvisoryNotes"
+                                       type="xsd:IDREFS"/>
+                                       
+                        <xsd:attribute name="serviceReporting"
+                                       type="switchType"/>
+            
+                        <xsd:attribute name="serviceReportingNotes"
+                                       type="xsd:IDREFS"/>
+                                       
+                        <xsd:anyAttribute/>
+                        
+                    </xsd:complexType>
+                    
+                </xsd:element>
+                
+                <xsd:element name="dataTypes"
+                             minOccurs="0">
+                
+                    <xsd:annotation>
+    
+                        <xsd:documentation>Data type definitions.</xsd:documentation>
+        
+                    </xsd:annotation>
+                    
+                    <xsd:complexType>
+                    
+                        <xsd:sequence>
+                        
+                            <xsd:element name="basicDataRepresentations">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Basic data representations.</xsd:documentation>
+        
+                                </xsd:annotation>
+                            
+                                <xsd:complexType>
+                                
+                                    <xsd:sequence>
+                                    
+                                        <xsd:element name="basicData"
+                                                     maxOccurs="unbounded">
+                                        
+                                            <xsd:annotation>
+    
+                                                <xsd:documentation>A basic data element.</xsd:documentation>
+        
+                                            </xsd:annotation>
+                                
+                                            <xsd:complexType>
+                                            
+                                                <xsd:attribute name="name"
+                                                               type="xsd:NMTOKEN"
+                                                               use="required"/>
+                                
+                                                <xsd:attribute name="nameNotes"
+                                                               type="xsd:IDREFS"/>
+                                                   
+                                                <xsd:attribute name="size"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="sizeNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="interpretation"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="interpretationNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="endian"
+                                                               type="endianType"/>
+                                                   
+                                                <xsd:attribute name="endianNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="encoding"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="encodingNotes"
+                                                               type="xsd:IDREFS"/>
+                                                                        
+                                                <xsd:anyAttribute/>
+                                                
+                                            </xsd:complexType>
+                                            
+                                        </xsd:element>
+                                    
+                                    </xsd:sequence>
+                                    
+                                    <xsd:anyAttribute/>
+                                    
+                                </xsd:complexType>
+                                
+                            </xsd:element>
+                            
+                            <xsd:element name="simpleDataTypes">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Simple data types.</xsd:documentation>
+        
+                                </xsd:annotation>
+                            
+                                <xsd:complexType>
+                                
+                                    <xsd:sequence>
+                                    
+                                        <xsd:element name="simpleData"
+                                                     maxOccurs="unbounded">
+                                        
+                                            <xsd:annotation>
+    
+                                                <xsd:documentation>A simple data type.</xsd:documentation>
+        
+                                            </xsd:annotation>
+                                
+                                            <xsd:complexType>
+                                            
+                                                <xsd:attribute name="name"
+                                                               type="xsd:NMTOKEN"
+                                                               use="required"/>
+                                
+                                                <xsd:attribute name="nameNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="representation"
+                                                               type="xsd:NMTOKEN"/>
+                                
+                                                <xsd:attribute name="representationNotes"
+                                                               type="xsd:IDREFS"/>
+                                                               
+                                                <xsd:attribute name="units"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="unitsNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="resolution"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="resolutionNotes"
+                                                               type="xsd:IDREFS"/>
+                                                               
+                                                <xsd:attribute name="accuracy"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="accuracyNotes"
+                                                               type="xsd:IDREFS"/>
+                                                               
+                                                <xsd:attribute name="semantics"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="semanticsNotes"
+                                                               type="xsd:IDREFS"/>
+                                                                        
+                                                <xsd:anyAttribute/>
+                                                
+                                            </xsd:complexType>
+                                            
+                                        </xsd:element>
+                                    
+                                    </xsd:sequence>
+                                    
+                                    <xsd:anyAttribute/>
+                                    
+                                </xsd:complexType>
+                                
+                            </xsd:element>
+                            
+                            <xsd:element name="enumeratedDataTypes"
+                                         minOccurs="0">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Enumerated data types.</xsd:documentation>
+        
+                                </xsd:annotation>
+                            
+                                <xsd:complexType>
+                                
+                                    <xsd:sequence>
+                                    
+                                        <xsd:element name="enumeratedData"
+                                                     maxOccurs="unbounded">
+                                        
+                                            <xsd:annotation>
+    
+                                                <xsd:documentation>An enumerated data type.</xsd:documentation>
+        
+                                            </xsd:annotation>
+                                
+                                            <xsd:complexType>
+                                            
+                                                <xsd:sequence>
+                                                
+                                                    <xsd:element name="enumerator"
+                                                                 maxOccurs="unbounded">
+                                                    
+                                                        <xsd:annotation>
+    
+                                                            <xsd:documentation>An element of an enumerated data type.</xsd:documentation>
+        
+                                                        </xsd:annotation>
+                                
+                                                        <xsd:complexType>
+                                                        
+                                                            <xsd:attribute name="name"
+                                                                           type="xsd:NMTOKEN"
+                                                                           use="required"/>
+                                
+                                                            <xsd:attribute name="nameNotes"
+                                                                           type="xsd:IDREFS"/>
+                                                        
+                                                            <xsd:attribute name="values"
+                                                                           type="xsd:NMTOKENS"/>
+                                
+                                                            <xsd:attribute name="valuesNotes"
+                                                                           type="xsd:IDREFS"/>
+                                                                           
+                                                            <xsd:anyAttribute/>
+                                                            
+                                                        </xsd:complexType>
+                                                        
+                                                    </xsd:element>
+                                                    
+                                                </xsd:sequence>
+                                                
+                                                <xsd:attribute name="name"
+                                                               type="xsd:NMTOKEN"
+                                                               use="required"/>
+                                
+                                                <xsd:attribute name="nameNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="representation"
+                                                               type="xsd:NMTOKEN"/>
+                                
+                                                <xsd:attribute name="representationNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="semantics"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="semanticsNotes"
+                                                               type="xsd:IDREFS"/>
+                                                                     
+                                                <xsd:anyAttribute/>
+                                                
+                                            </xsd:complexType>
+                                            
+                                        </xsd:element>
+                                    
+                                    </xsd:sequence>
+                                    
+                                    <xsd:anyAttribute/>
+                                    
+                                </xsd:complexType>
+                                
+                            </xsd:element>
+                            
+                            <xsd:element name="arrayDataTypes">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Array data types.</xsd:documentation>
+        
+                                </xsd:annotation>
+                            
+                                <xsd:complexType>
+                                
+                                    <xsd:sequence>
+                                    
+                                        <xsd:element name="arrayData"
+                                                     maxOccurs="unbounded">
+                                        
+                                            <xsd:annotation>
+    
+                                                <xsd:documentation>An array data type.</xsd:documentation>
+        
+                                            </xsd:annotation>
+                                
+                                            <xsd:complexType>
+                                            
+                                                <xsd:attribute name="name"
+                                                               type="xsd:NMTOKEN"
+                                                               use="required"/>
+                                
+                                                <xsd:attribute name="nameNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="dataType"
+                                                               type="xsd:NMTOKEN"/>
+                                
+                                                <xsd:attribute name="dataTypeNotes"
+                                                               type="xsd:IDREFS"/>
+                                                   
+                                                <xsd:attribute name="cardinality"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="cardinalityNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="encoding"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="encodingNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="semantics"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="semanticsNotes"
+                                                               type="xsd:IDREFS"/>
+                                                                
+                                                <xsd:anyAttribute/>
+                                                
+                                            </xsd:complexType>
+                                            
+                                        </xsd:element>
+                                    
+                                    </xsd:sequence>
+                                    
+                                    <xsd:anyAttribute/>
+                                    
+                                </xsd:complexType>
+                                
+                            </xsd:element>
+                            
+                            <xsd:element name="fixedRecordDataTypes"
+                                         minOccurs="0">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Fixed record data types.</xsd:documentation>
+        
+                                </xsd:annotation>
+                            
+                                <xsd:complexType>
+                                
+                                    <xsd:sequence>
+                                    
+                                        <xsd:element name="fixedRecordData"
+                                                     maxOccurs="unbounded">
+                                        
+                                            <xsd:annotation>
+    
+                                                <xsd:documentation>A fixed record data type.</xsd:documentation>
+        
+                                            </xsd:annotation>
+                                
+                                            <xsd:complexType>
+                                            
+                                                <xsd:sequence>
+                                                
+                                                    <xsd:element name="field"
+                                                                 maxOccurs="unbounded">
+                                                    
+                                                        <xsd:annotation>
+    
+                                                            <xsd:documentation>A field of a fixed record data type.</xsd:documentation>
+        
+                                                        </xsd:annotation>
+                                                        
+                                                        <xsd:complexType>
+                                                        
+                                                            <xsd:attribute name="name"
+                                                                           type="xsd:NMTOKEN"
+                                                                           use="required"/>
+                                
+                                                            <xsd:attribute name="nameNotes"
+                                                                           type="xsd:IDREFS"/>
+                                                
+                                                            <xsd:attribute name="dataType"
+                                                                           type="xsd:NMTOKEN"/>
+                                
+                                                            <xsd:attribute name="dataTypeNotes"
+                                                                           type="xsd:IDREFS"/>
+                                                               
+                                                            <xsd:attribute name="semantics"
+                                                                           type="xsd:string"/>
+                                                   
+                                                            <xsd:attribute name="semanticsNotes"
+                                                                           type="xsd:IDREFS"/>
+                                                        
+                                                            <xsd:anyAttribute/>
+                                                            
+                                                        </xsd:complexType>
+                                                        
+                                                    </xsd:element>
+                                                    
+                                                </xsd:sequence>
+                                                
+                                                <xsd:attribute name="name"
+                                                               type="xsd:NMTOKEN"
+                                                               use="required"/>
+                                
+                                                <xsd:attribute name="nameNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="encoding"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="encodingNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="semantics"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="semanticsNotes"
+                                                               type="xsd:IDREFS"/>
+                                                                        
+                                                <xsd:anyAttribute/>
+                                                
+                                            </xsd:complexType>
+                                            
+                                        </xsd:element>
+                                    
+                                    </xsd:sequence>
+                                    
+                                    <xsd:anyAttribute/>
+                                    
+                                </xsd:complexType>
+                                
+                            </xsd:element>
+                            
+                            <xsd:element name="variantRecordDataTypes"
+                                         minOccurs="0">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>Variant record data types.</xsd:documentation>
+        
+                                </xsd:annotation>
+                            
+                                <xsd:complexType>
+                                
+                                    <xsd:sequence>
+                                    
+                                        <xsd:element name="variantRecordData"
+                                                     maxOccurs="unbounded">
+                                        
+                                            <xsd:annotation>
+    
+                                                <xsd:documentation>A variant record data type.</xsd:documentation>
+        
+                                            </xsd:annotation>
+                                
+                                            <xsd:complexType>
+                                            
+                                                <xsd:sequence>
+                                                
+                                                    <xsd:element name="alternative"
+                                                                 maxOccurs="unbounded">
+                                                    
+                                                        <xsd:annotation>
+    
+                                                            <xsd:documentation>An alternative of a variant record type.</xsd:documentation>
+        
+                                                        </xsd:annotation>
+                                                        
+                                                        <xsd:complexType>
+                                                        
+                                                            <xsd:attribute name="name"
+                                                                           type="xsd:NMTOKEN"/>
+                                
+                                                            <xsd:attribute name="nameNotes"
+                                                                           type="xsd:IDREFS"/>
+                                                                           
+                                                            <xsd:attribute name="enumerator"
+                                                                           type="xsd:string"
+                                                                           use="required"/>
+                                                   
+                                                            <xsd:attribute name="enumeratorNotes"
+                                                                           type="xsd:IDREFS"/>
+                                                               
+                                                            <xsd:attribute name="dataType"
+                                                                           type="xsd:NMTOKEN"/>
+                                
+                                                            <xsd:attribute name="dataTypeNotes"
+                                                                           type="xsd:IDREFS"/>
+                                                               
+                                                            <xsd:attribute name="semantics"
+                                                                           type="xsd:string"/>
+                                                   
+                                                            <xsd:attribute name="semanticsNotes"
+                                                                           type="xsd:IDREFS"/>
+                                                        
+                                                            <xsd:anyAttribute/>
+                                                            
+                                                        </xsd:complexType>
+                                                                    
+                                                    </xsd:element>
+                                                    
+                                                </xsd:sequence>
+                                                
+                                                <xsd:attribute name="name"
+                                                               type="xsd:NMTOKEN"
+                                                               use="required"/>
+                                
+                                                <xsd:attribute name="nameNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="discriminant"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="discriminantNotes"
+                                                               type="xsd:IDREFS"/>
+                                                               
+                                                <xsd:attribute name="dataType"
+                                                               type="xsd:NMTOKEN"/>
+                                
+                                                <xsd:attribute name="dataTypeNotes"
+                                                               type="xsd:IDREFS"/>
+                                                   
+                                                <xsd:attribute name="encoding"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="encodingNotes"
+                                                               type="xsd:IDREFS"/>
+                                                
+                                                <xsd:attribute name="semantics"
+                                                               type="xsd:string"/>
+                                                   
+                                                <xsd:attribute name="semanticsNotes"
+                                                               type="xsd:IDREFS"/>
+                                                                        
+                                                <xsd:anyAttribute/>
+                                                
+                                            </xsd:complexType>
+                                            
+                                        </xsd:element>
+                                    
+                                    </xsd:sequence>
+                                    
+                                    <xsd:anyAttribute/>
+                                    
+                                </xsd:complexType>
+                                
+                            </xsd:element>
+                            
+                        </xsd:sequence>
+                        
+                        <xsd:anyAttribute/>
+                        
+                    </xsd:complexType>
+                    
+                </xsd:element>
+                
+                <xsd:element name="notes"
+                             minOccurs="0">
+                
+                    <xsd:annotation>
+    
+                        <xsd:documentation>Notes.</xsd:documentation>
+        
+                    </xsd:annotation>
+                    
+                    <xsd:complexType>
+                    
+                        <xsd:sequence>
+                        
+                            <xsd:element name="note"
+                                         maxOccurs="unbounded">
+                            
+                                <xsd:annotation>
+    
+                                    <xsd:documentation>A note.</xsd:documentation>
+        
+                                </xsd:annotation>
+                            
+                                <xsd:complexType>
+                                
+                                    <xsd:attribute name="name"
+                                                   type="xsd:ID"
+                                                   use="required"/>
+                                
+                                    <xsd:attribute name="semantics"
+                                                   type="xsd:string"/>
+                                                   
+                                    <xsd:attribute name="semanticsNotes"
+                                                   type="xsd:IDREFS"/>
+                                    
+                                    <xsd:anyAttribute/>
+                                    
+                                </xsd:complexType>
+                                
+                            </xsd:element>
+                        
+                        </xsd:sequence>
+                        
+                        <xsd:anyAttribute/>
+                        
+                    </xsd:complexType>
+                    
+                </xsd:element>
+                             
+            </xsd:sequence>
+            
+            <xsd:attribute name="DTDversion"
+                           type="xsd:string"
+                           fixed="1516.2"/>
+        
+            <xsd:attribute name="name"
+                           type="xsd:string"
+                           use="required"/>
+            
+            <xsd:attribute name="nameNotes"
+                           type="xsd:IDREFS"/>
+            
+            <xsd:attribute name="type"
+                           type="objectModelType"
+                           use="required"/>
+                           
+            <xsd:attribute name="typeNotes"
+                           type="xsd:IDREFS"/>
+            
+            <xsd:attribute name="version"
+                           type="xsd:string"/>
+            
+            <xsd:attribute name="versionNotes"
+                           type="xsd:IDREFS"/>
+            
+            <xsd:attribute name="date"
+                           type="xsd:string"/>
+            
+            <xsd:attribute name="dateNotes"
+                           type="xsd:IDREFS"/>
+            
+            <xsd:attribute name="purpose"
+                           type="xsd:string"/>
+            
+            <xsd:attribute name="purposeNotes"
+                           type="xsd:IDREFS"/>
+            
+            <xsd:attribute name="appDomain"
+                           type="xsd:string"/>
+            
+            <xsd:attribute name="appDomainNotes"
+                           type="xsd:IDREFS"/>
+            
+            <xsd:attribute name="sponsor"
+                           type="xsd:string"/>
+            
+            <xsd:attribute name="sponsorNotes"
+                           type="xsd:IDREFS"/>
+            
+            <xsd:attribute name="pocName"
+                           type="xsd:string"/>
+            
+            <xsd:attribute name="pocNameNotes"
+                           type="xsd:IDREFS"/>
+            
+            <xsd:attribute name="pocOrg"
+                           type="xsd:string"/>
+            
+            <xsd:attribute name="pocOrgNotes"
+                           type="xsd:IDREFS"/>
+                           
+            <xsd:attribute name="pocPhone"
+                           type="xsd:string"/>
+            
+            <xsd:attribute name="pocPhoneNotes"
+                           type="xsd:IDREFS"/>
+                           
+            <xsd:attribute name="pocEmail"
+                           type="xsd:string"/>
+            
+            <xsd:attribute name="pocEmailNotes"
+                           type="xsd:IDREFS"/>
+            
+            <xsd:attribute name="references"
+                           type="xsd:string"/>
+            
+            <xsd:attribute name="referencesNotes"
+                           type="xsd:IDREFS"/>
+            
+            <xsd:attribute name="other"
+                           type="xsd:string"/>
+            
+            <xsd:attribute name="otherNotes"
+                           type="xsd:IDREFS"/>
+            
+            <xsd:anyAttribute/>
+            
+        </xsd:complexType>
+        
+    </xsd:element>
+    
+</xsd:schema>

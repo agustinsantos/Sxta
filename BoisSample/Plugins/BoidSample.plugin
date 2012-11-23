@@ -1,0 +1,49 @@
+<Plugin name       = "Sxta.Rti1516.BoidSample"
+       author      = "Agustin Santos"
+       copyright   = "GPL"
+       url         = "http://www.sxta.net"
+       description = "A sample plugin with Boids Simulation"
+       version     = "0.0.1">
+
+	<Runtime>
+		<Import assembly="BoidSimulation.dll"/>
+		<!--Import assembly="Mogre.dll"/>
+		<Import assembly="MOIS.dll"/-->
+	</Runtime>
+
+	<Extension path = "/Plugins">
+		<Module id = "BoidSimulation1" class = "Sxta.Rti1516.BoidSample.BoidsSimulation" Color="green">
+			<ObjectModel>
+				<FomModel From="File" Uri="Resources/BoidsObjectModel.xml"/>
+				<FomModel From="Assembly"/>
+			</ObjectModel>
+			<Channels>
+				<TcpChannel Name="AChannelReliable" Address="localhost" Port="7777"/>
+				<UdpChannel Name="AChannelBestEffort" Address="localhost" Port="1234"/>
+				<MultiChannel Name="AChannelMulticast" Address="224.0.0.1" Port="8080"/>
+				<Mapping>
+					<Transport Name="HLAreliable" Use="AChannelReliable" />
+					<Transport Name="HLAbestEffort" Use="AChannelBestEffort" />
+					<Transport Name="Multicast" Use="AChannelMulticast" />
+				</Mapping>
+			</Channels>
+		</Module>
+		<Module id = "BoidSimulation2" class = "Sxta.Rti1516.BoidSample.BoidsSimulation" Color="red">
+			<ObjectModel>
+				<FomModel From="File" Uri="Resources/BoidsObjectModel.xml"/>
+				<FomModel From="Assembly"/>
+			</ObjectModel>
+			<Channels>
+				<TcpChannel Name="AChannelReliable" Address="localhost" Port="7777"/>
+				<UdpChannel Name="AChannelBestEffort" Address="localhost" Port="1234"/>
+				<MultiChannel Name="AChannelMulticast" Address="224.0.0.1" Port="8080"/>
+				<Mapping>
+					<Transport Name="HLAreliable" Use="AChannelReliable" />
+					<Transport Name="HLAbestEffort" Use="AChannelBestEffort" />
+					<Transport Name="Multicast" Use="AChannelMulticast" />
+				</Mapping>
+			</Channels>
+		</Module>
+	</Extension>
+	
+</Plugin>

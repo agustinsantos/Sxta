@@ -1,0 +1,481 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RPR2D17</name>
+    </assembly>
+    <members>
+        <member name="T:Sxta.RPR2D17.VelocityVectorStruct">
+            <summary>
+            <code>
+               <fixedRecordData
+                    name="VelocityVectorStruct"
+                    semantics="-NULL-">
+                    <field
+                       name="XVelocity"
+                       dataType="HLAfloat32BEm_slsh_sperfectalways"
+                       semantics="-NULL-"/>
+                    <field
+                       name="YVelocity"
+                       dataType="HLAfloat32BEm_slsh_sperfectalways"
+                       semantics="-NULL-"/>
+                    <field
+                       name="ZVelocity"
+                       dataType="HLAfloat32BEm_slsh_sperfectalways"
+                       semantics="-NULL-"/>
+                 </fixedRecordData>
+            </code>
+            </summary>
+        </member>
+        <member name="T:Sxta.RPR2D17.OrientationStruct">
+            <summary>
+            The Orientation attribute describes the object’s orientation in space. 
+            The object’s orientation is described by three angles: 
+            Psi or heading, Theta or pitch, and Phi or roll. 
+            The units for the three angles are in radians.
+            The Orientation attribute is represented as a
+            struct of three floats. 
+            <code>
+               <fixedRecordData
+                    name="OrientationStruct"
+                    semantics="The Orientation attribute describes the object’s orientation in space">
+                    <field
+                       name="Psi"
+                       dataType="HLAfloat32BEradiansperfectalways"
+                       semantics="Psi angle in radians or heading"/>
+                    <field
+                       name="Theta"
+                       dataType="HLAfloat32BEradiansperfectalways"
+                       semantics="Theta angle in radians or pitch"/>
+                    <field
+                       name="Phi"
+                       dataType="HLAfloat32BEradiansperfectalways"
+                       semantics="Phi angle in radians or roll"/>
+                 </fixedRecordData>
+            </code>
+            </summary>
+        </member>
+        <member name="T:Sxta.RPR2D17.FederateIdentifierStruct">
+            <summary>
+            <code>
+             <fixedRecordData
+                    name="FederateIdentifierStruct"
+                    semantics="-NULL-">
+                    <field
+                       name="SiteID"
+                       dataType="Unsignedinteger16BEN_slsh_AperfectalwaysN_slsh_A"
+                       semantics="-NULL-"/>
+                    <field
+                       name="ApplicationID"
+                       dataType="Unsignedinteger16BEN_slsh_AperfectalwaysN_slsh_A"
+                       semantics="-NULL-"/>
+               </fixedRecordData>
+            </code>
+            </summary>
+        </member>
+        <member name="M:Sxta.RPR2D17.ForceIdentifierSupport.IsFriendly(Sxta.RPR2D17.ForceIdentifierEnum8)">
+            <summary>
+            returns true if the force is friendly, false otherwise
+            </summary>
+            <param name="force">the force</param>
+            <returns>true if the force is friendly</returns>
+        </member>
+        <member name="M:Sxta.RPR2D17.ForceIdentifierSupport.IsOpposing(Sxta.RPR2D17.ForceIdentifierEnum8)">
+            <summary>
+            returns true if the force is opposing, false otherwise
+            </summary>
+            <param name="force">the force</param>
+            <returns>true if the force is opposing</returns>
+        </member>
+        <member name="T:Sxta.RPR2D17.SpatialStruct">
+            <summary>
+            <code>
+                <fixedRecordData
+                    name="SpatialStruct"
+                    semantics="-NULL-">
+                    <field
+                       name="DeadReckoningAlgorithm-A-Alternatives"
+                       dataType="SpatialStruct-DeadReckoningAlgorithm"
+                       semantics="-NULL-"/>
+                 </fixedRecordData>
+            </code>
+            </summary>
+        </member>
+        <member name="T:Sxta.RPR2D17.SpatialStruct_DeadReckoningAlgorithm">
+            <summary>
+            <code>
+                      <variantRecordData
+                    name="SpatialStruct-DeadReckoningAlgorithm"
+                    discriminant="DeadReckoningAlgorithm"
+                    dataType="DeadReckoningAlgorithmEnum8"
+                    encoding="HLAvariantRecord"
+                    semantics="-NULL-">
+                    <alternative
+                       enumerator="Static"
+                       name="SpatialStatic"
+                       dataType="SpatialStaticStruct"
+                       semantics="-NULL-"/>
+                    <alternative
+                       enumerator="DRM_FPW"
+                       name="SpatialFPW"
+                       dataType="SpatialFPStruct"
+                       semantics="-NULL-"/>
+                    <alternative
+                       enumerator="DRM_RPW"
+                       name="SpatialRPW"
+                       dataType="SpatialRPStruct"
+                       semantics="-NULL-"/>
+                    <alternative
+                       enumerator="DRM_RVW"
+                       name="SpatialRVW"
+                       dataType="SpatialRVStruct"
+                       semantics="-NULL-"/>
+                    <alternative
+                       enumerator="DRM_FVW"
+                       name="SpatialFVW"
+                       dataType="SpatialFVStruct"
+                       semantics="-NULL-"/>
+                    <alternative
+                       enumerator="DRM_FPB"
+                       name="SpatialFPB"
+                       dataType="SpatialFPStruct"
+                       semantics="-NULL-"/>
+                    <alternative
+                       enumerator="DRM_RPB"
+                       name="SpatialRPB"
+                       dataType="SpatialRPStruct"
+                       semantics="-NULL-"/>
+                    <alternative
+                       enumerator="DRM_RVB"
+                       name="SpatialRVB"
+                       dataType="SpatialRVStruct"
+                       semantics="-NULL-"/>
+                    <alternative
+                       enumerator="DRM_FVB"
+                       name="SpatialFVB"
+                       dataType="SpatialFVStruct"
+                       semantics="-NULL-"/>
+                 </variantRecordData>
+            </code>
+            </summary>
+        </member>
+        <member name="P:Sxta.RPR2D17.SpatialStruct_DeadReckoningAlgorithm.SpatialStatic">
+            <summary>
+              <alternative
+                  enumerator="Static"
+                  name="SpatialStatic"
+                  dataType="SpatialStaticStruct"
+                  semantics="-NULL-"/>
+            </summary>
+        </member>
+        <member name="P:Sxta.RPR2D17.SpatialStruct_DeadReckoningAlgorithm.SpatialFPW">
+            <summary>
+                <alternative
+                    enumerator="DRM_FPW"
+                    name="SpatialFPW"
+                    dataType="SpatialFPStruct"
+                    semantics="-NULL-"/>
+            </summary>
+        </member>
+        <member name="T:Sxta.RPR2D17.SpatialFPStruct">
+            <summary>
+            <code>
+              <fixedRecordData
+                    name="SpatialFPStruct"
+                    semantics="-NULL-">
+                    <field
+                       name="WorldLocation"
+                       dataType="WorldLocationStruct"
+                       semantics="-NULL-"/>
+                    <field
+                       name="IsFrozen"
+                       nameNotes="48 78"
+                       dataType="OMT13boolean"
+                       semantics="Freeze Motion"/>
+                    <field
+                       name="Orientation"
+                       dataType="OrientationStruct"
+                       semantics="-NULL-"/>
+                    <field
+                       name="VelocityVector"
+                       dataType="VelocityVectorStruct"
+                       semantics="-NULL-"/>
+                 </fixedRecordData>
+            </code>
+            </summary>
+        </member>
+        <member name="T:Sxta.RPR2D17.DamageStatusEnum32">
+            <summary>
+            The state of damage of the entity.
+            <code>
+            <enumeratedData
+                    name="DamageStatusEnum32"
+                    nameNotes="10"
+                    representation="HLAinteger32BE"
+                    semantics="-NULL-">
+                    <enumerator
+                       name="NoDamage"
+                       values="0"/>
+                    <enumerator
+                       name="SlightDamage"
+                       values="1"/>
+                    <enumerator
+                       name="ModerateDamage"
+                       values="2"/>
+                    <enumerator
+                       name="Destroyed"
+                       values="3"/>
+                 </enumeratedData>
+            </code>
+            </summary>
+        </member>
+        <member name="T:Sxta.RPR2D17.DamageStatus">
+            <summary>
+            A generic damage model using values from UInt32
+            </summary>
+        </member>
+        <member name="T:Sxta.RPR2D17.DeadReckoningAlgorithmEnum8">
+            <summary>
+            <code>
+             <enumeratedData
+                    name="DeadReckoningAlgorithmEnum8"
+                    nameNotes="8"
+                    representation="HLAoctet"
+                    semantics="-NULL-">
+                    <enumerator
+                       name="Other"
+                       values="0"/>
+                    <enumerator
+                       name="Static"
+                       values="1"/>
+                    <enumerator
+                       name="DRM_FPW"
+                       values="2"/>
+                    <enumerator
+                       name="DRM_RPW"
+                       values="3"/>
+                    <enumerator
+                       name="DRM_RVW"
+                       values="4"/>
+                    <enumerator
+                       name="DRM_FVW"
+                       values="5"/>
+                    <enumerator
+                       name="DRM_FPB"
+                       values="6"/>
+                    <enumerator
+                       name="DRM_RPB"
+                       values="7"/>
+                    <enumerator
+                       name="DRM_RVB"
+                       values="8"/>
+                    <enumerator
+                       name="DRM_FVB"
+                       values="9"/>
+                 </enumeratedData>
+            </code>
+            </summary>
+        </member>
+        <!-- El comentario XML con formato incorrecto se omite para el miembro "T:Sxta.RPR2D17.BaseEntity" -->
+        <member name="F:Sxta.RPR2D17.BaseEntity.entityType">
+            <summary>
+            The category of the entity.
+            </summary>
+        </member>
+        <member name="F:Sxta.RPR2D17.BaseEntity.entityIdentifier">
+            <summary>
+            The unique identifier for the entity instance.
+            </summary>
+        </member>
+        <member name="F:Sxta.RPR2D17.BaseEntity.spatial">
+            <summary>
+            Spatial state stored in one variant record attribute
+            </summary>
+        </member>
+        <member name="P:Sxta.RPR2D17.BaseEntity.EntityType">
+            <summary>
+            The category of the entity.
+            <code>
+            <attribute
+                name="EntityType"
+                dataType="EntityTypeStruct"
+                updateType="Static"
+                updateCondition="N/A"
+                ownership="NoTransfer"
+                sharing="PublishSubscribe"
+                dimensions="NA"
+                transportation="HLAbestEffort"
+                order="Receive"
+                semantics="The category of the entity."/>
+            </code>
+            </summary>
+        </member>
+        <member name="P:Sxta.RPR2D17.BaseEntity.EntityIdentifier">
+            <summary>
+            The unique identifier for the entity instance.
+            <code>
+                    <attribute
+                       name="EntityIdentifier"
+                       dataType="EntityIdentifierStruct"
+                       updateType="Static"
+                       updateCondition="N/A"
+                       ownership="NoTransfer"
+                       sharing="PublishSubscribe"
+                       dimensions="NA"
+                       transportation="HLAbestEffort"
+                       order="Receive"
+                       semantics="The unique identifier for the entity instance."/>
+            </code>
+            </summary>
+        </member>
+        <member name="P:Sxta.RPR2D17.BaseEntity.Spatial">
+            <summary>
+            Spatial state stored in one variant record attribute
+            <code>
+                    <attribute
+                       name="Spatial"
+                       nameNotes="77"
+                       dataType="SpatialStruct"
+                       updateType="Conditional"
+                       ownership="NoTransfer"
+                       sharing="PublishSubscribe"
+                       dimensions="NA"
+                       transportation="HLAbestEffort"
+                       order="Receive"
+                       semantics="Spatial state stored in one variant record attribute"/>
+            </code>
+            </summary>
+        </member>
+        <member name="T:Sxta.RPR2D17.SpatialStaticStruct">
+            <summary>
+            <code>
+             <fixedRecordData
+                     name="SpatialStaticStruct"
+                     semantics="-NULL-">
+                     <field
+                        name="WorldLocation"
+                        dataType="WorldLocationStruct"
+                        semantics="-NULL-"/>
+                     <field
+                        name="IsFrozen"
+                        nameNotes="48 78"
+                        dataType="OMT13boolean"
+                        semantics="Freeze Motion"/>
+                     <field
+                        name="Orientation"
+                        dataType="OrientationStruct"
+                        semantics="-NULL-"/>
+                  </fixedRecordData>
+            </code>
+            </summary>
+        </member>
+        <member name="T:Sxta.RPR2D17.WorldLocationStruct">
+            <summary>
+            <code>
+               <fixedRecordData
+                    name="WorldLocationStruct"
+                    semantics="-NULL-">
+                    <field
+                       name="X"
+                       dataType="HLAfloat64BEmetersperfectalways"
+                       semantics="-NULL-"/>
+                    <field
+                       name="Y"
+                       dataType="HLAfloat64BEmetersperfectalways"
+                       semantics="-NULL-"/>
+                    <field
+                       name="Z"
+                       dataType="HLAfloat64BEmetersperfectalways"
+                       semantics="-NULL-"/>
+                 </fixedRecordData>
+            </code>
+            </summary>
+        </member>
+        <member name="T:Sxta.RPR2D17.PhysicalEntity">
+            <summary>
+            A base class of all discrete platform scenario domain participants.
+            <code>
+            </code>
+            </summary>
+        </member>
+        <member name="F:Sxta.RPR2D17.PhysicalEntity.damageState">
+            <summary>
+            The state of damage of the entity
+            </summary>
+        </member>
+        <member name="P:Sxta.RPR2D17.PhysicalEntity.DamageState">
+            <summary>
+            The state of damage of the entity
+            <code>
+                <attribute
+                      name="DamageState"
+                      dataType="DamageStatusEnum32"
+                      updateType="Conditional"
+                      updateCondition="On change"
+                      ownership="NoTransfer"
+                      sharing="PublishSubscribe"
+                      dimensions="NA"
+                      transportation="HLAbestEffort"
+                      order="Receive"
+                      semantics="The state of damage of the entity."/>
+            </code>
+            </summary>
+        </member>
+        <member name="T:Sxta.RPR2D17.EntityTypeStruct">
+            <summary>
+            <code>
+               <fixedRecordData
+                  name="EntityTypeStruct"
+                  nameNotes="5 29"
+                  semantics="-NULL-">
+                    <field
+                       name="EntityKind"
+                       dataType="HLAoctetN_slsh_Aperfectalways1"
+                       semantics="-NULL-"/>
+                    <field
+                       name="Domain"
+                       dataType="HLAoctetN_slsh_Aperfectalways1"
+                       semantics="-NULL-"/>
+                    <field
+                       name="CountryCode"
+                       dataType="Unsignedinteger16BEN_slsh_Aperfectalways1"
+                       semantics="-NULL-"/>
+                    <field
+                       name="Category"
+                       dataType="HLAoctetN_slsh_Aperfectalways1"
+                       semantics="-NULL-"/>
+                    <field
+                       name="Subcategory"
+                       dataType="HLAoctetN_slsh_Aperfectalways1"
+                       semantics="-NULL-"/>
+                    <field
+                       name="Specific"
+                       dataType="HLAoctetN_slsh_Aperfectalways1"
+                       semantics="-NULL-"/>
+                    <field
+                       name="Extra"
+                       dataType="HLAoctetN_slsh_Aperfectalways1"
+                       semantics="-NULL-"/>
+               </fixedRecordData>
+            </code>
+            </summary>
+        </member>
+        <member name="T:Sxta.RPR2D17.EntityIdentifierStruct">
+            <summary>
+            <code>
+              <fixedRecordData
+                       name="EntityIdentifierStruct"
+                       semantics="-NULL-">
+                       <field
+                          name="FederateIdentifier"
+                          dataType="FederateIdentifierStruct"
+                          semantics="-NULL-"/>
+                       <field
+                          name="EntityNumber"
+                          dataType="Unsignedinteger16BEN_slsh_Aperfectalways1"
+                          semantics="-NULL-"/>
+               </fixedRecordData>
+            </code>
+            </summary>
+        </member>
+    </members>
+</doc>

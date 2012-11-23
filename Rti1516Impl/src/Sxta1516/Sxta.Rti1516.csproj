@@ -1,0 +1,350 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{012B35B4-EF0D-49E2-841A-02D930CB4978}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sxta.Rti1516</RootNamespace>
+    <AssemblyName>Sxta1516</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\build\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\build\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C5, Version=1.0.1.0, Culture=neutral, PublicKeyToken=06a1b38866503b69, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\C5.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Nini, Version=1.0.0.0, Culture=neutral, PublicKeyToken=691faec150a7fa7b">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\Nini.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ambassadors\BaseAmbassador.cs" />
+    <Compile Include="Ambassadors\ISxtaFederateAmbassador.cs" />
+    <Compile Include="Ambassadors\MetaFederateAmbassador.cs" />
+    <Compile Include="Ambassadors\XrtiExecutiveAmbassador.cs" />
+    <Compile Include="Ambassadors\XrtiExecutiveMetaFederation.cs" />
+    <Compile Include="Ambassadors\XrtiExecutiveTimeManagement.cs" />
+    <Compile Include="Ambassadors\XrtiFederateAmbassador.cs" />
+    <Compile Include="BoostrapProtocol\BootstrapObjectModelInteractionHelper.cs" />
+    <Compile Include="Interactions\HLAinteractionRootMessage.cs" />
+    <Compile Include="Interactions\HLAinteractionRootMessageXrtiSerializer.cs" />
+    <Compile Include="HLAswitch.cs" />
+    <Compile Include="BoostrapProtocol\InteractionDispatcher.cs" />
+    <Compile Include="LowLevelManagement\ILowLevelManagementObjectModelInteractionListener.cs" />
+    <Compile Include="LowLevelManagement\LowLevelManagementObjectModelInteractionHelper.cs" />
+    <Compile Include="LowLevelManagement\HLAregisterObjectInstanceWithTimeMessage.cs" />
+    <Compile Include="BoostrapProtocol\HLAattributeHandleValuePair.cs" />
+    <Compile Include="BoostrapProtocol\HLAcontinueMessage.cs" />
+    <Compile Include="BoostrapProtocol\HlaGenericInteractionMessage.cs" />
+    <Compile Include="BoostrapProtocol\HLAparameterHandleValuePair.cs" />
+    <Compile Include="LowLevelManagement\HLAregisterObjectInstanceMessage.cs" />
+    <Compile Include="LowLevelManagement\HLAreportHandlesMessage.cs" />
+    <Compile Include="LowLevelManagement\HLArequestAttributeValueUpdateMessage.cs" />
+    <Compile Include="LowLevelManagement\HLArequestHandlesMessage.cs" />
+    <Compile Include="LowLevelManagement\HLAupdateAttributeValues.cs" />
+    <Compile Include="LowLevelManagement\HLAupdateAttributeValuesBestEffortMessage.cs" />
+    <Compile Include="LowLevelManagement\HLAupdateAttributeValuesBestEffortWithTimeMessage.cs" />
+    <Compile Include="LowLevelManagement\HLAupdateAttributeValuesReliableMessage.cs" />
+    <Compile Include="LowLevelManagement\HLAupdateAttributeValuesReliableWithTimeMessage.cs" />
+    <Compile Include="LowLevelManagement\HLAupdateAttributeValuesWithTimeMessage.cs" />
+    <Compile Include="BoostrapProtocol\IBootstrapObjectModelInteractionListener.cs" />
+    <Compile Include="BoostrapProtocol\PeerAdvertisementInteractionMessage.cs" />
+    <Compile Include="BoostrapProtocol\BaseProtocol.cs" />
+    <Compile Include="Channels\ChannelsManager.cs" />
+    <Compile Include="Channels\MemoryMessageChannel.cs" />
+    <Compile Include="Channels\MulticastMessageChannel.cs" />
+    <Compile Include="Channels\DGramMessageChannel.cs" />
+    <Compile Include="Channels\IMessageChannel.cs" />
+    <Compile Include="Channels\MessageChannelAcceptor.cs" />
+    <Compile Include="Channels\NetworkMessageChannel.cs" />
+    <Compile Include="Channels\StreamMessageChannel.cs" />
+    <Compile Include="Channels\TCPMessageChannel.cs" />
+    <Compile Include="Channels\TCPMessageChannelAcceptor.cs" />
+    <Compile Include="Channels\UDPMessageChannel.cs" />
+    <Compile Include="Handles\XRTIAttributeHandle.cs" />
+    <Compile Include="Handles\XRTIAttributeHandleFactory.cs" />
+    <Compile Include="Handles\XRTIAttributeHandleSet.cs" />
+    <Compile Include="Handles\XRTIAttributeHandleSetFactory.cs" />
+    <Compile Include="Handles\XRTIAttributeHandleValueMap.cs" />
+    <Compile Include="Handles\XRTIAttributeHandleValueMapFactory.cs" />
+    <Compile Include="Handles\XRTIAttributeSetRegionSetPairList.cs" />
+    <Compile Include="Handles\XRTIAttributeSetRegionSetPairListFactory.cs" />
+    <Compile Include="Handles\XRTIDimensionHandle.cs" />
+    <Compile Include="Handles\XRTIDimensionHandleFactory.cs" />
+    <Compile Include="Handles\XRTIDimensionHandleSet.cs" />
+    <Compile Include="Handles\XRTIDimensionHandleSetFactory.cs" />
+    <Compile Include="Handles\XRTIFederateHandle.cs" />
+    <Compile Include="Handles\XRTIFederateHandleFactory.cs" />
+    <Compile Include="Handles\XRTIFederateHandleSet.cs" />
+    <Compile Include="Handles\XRTIFederateHandleSetFactory.cs" />
+    <Compile Include="Handles\XRTIInteractionClassHandle.cs" />
+    <Compile Include="Handles\XRTIInteractionClassHandleFactory.cs" />
+    <Compile Include="Handles\XRTIObjectClassHandle.cs" />
+    <Compile Include="Handles\XRTIObjectClassHandleFactory.cs" />
+    <Compile Include="Handles\XRTIObjectInstanceHandle.cs" />
+    <Compile Include="Handles\XRTIObjectInstanceHandleFactory.cs" />
+    <Compile Include="Handles\XRTIParameterHandle.cs" />
+    <Compile Include="Handles\XRTIParameterHandleFactory.cs" />
+    <Compile Include="Handles\XRTIParameterHandleValueMap.cs" />
+    <Compile Include="Handles\XRTIParameterHandleValueMapFactory.cs" />
+    <Compile Include="Handles\XRTIRegionHandle.cs" />
+    <Compile Include="Handles\XRTIRegionHandleSet.cs" />
+    <Compile Include="Handles\XRTIRegionHandleSetFactory.cs" />
+    <Compile Include="Interactions\IIteractionListener.cs" />
+    <Compile Include="BoostrapProtocol\InteractionManager.cs" />
+    <Compile Include="LowLevelManagement\LowLevelManagementObjectModelInteractionListener.cs" />
+    <Compile Include="Lrc\Callback.cs" />
+    <Compile Include="Lrc\Lrc.cs" />
+    <Compile Include="Lrc\LRCQueue.cs" />
+    <Compile Include="Lrc\LrcState.cs" />
+    <Compile Include="Management\HLAfederatePropertyHLAGALT.cs" />
+    <Compile Include="Management\HLAfederatePropertyHLALITS.cs" />
+    <Compile Include="Management\HLAfederatePropertyHLAlookahead.cs" />
+    <Compile Include="Management\HLAfederatePropertyHLAtimeConstrained.cs" />
+    <Compile Include="Management\HLAfederatePropertyHLAtimeManagerState.cs" />
+    <Compile Include="Management\ILogicalTimeIntervalXrtiSerializer.cs" />
+    <Compile Include="Management\ILogicalTimeXrtiSerializer.cs" />
+    <Compile Include="Management\IManagementObjectModelInteractionListener.cs" />
+    <Compile Include="Management\Interactions\HLAfederateMessage.cs" />
+    <Compile Include="Management\SxtafederatePropertyHLAfederationNameJoined.cs" />
+    <Compile Include="Management\Interactions\HLAmanagerMessage.cs" />
+    <Compile Include="Management\Interactions\HLApublishInteractionClass.cs" />
+    <Compile Include="Management\Interactions\HLAserviceMessage.cs" />
+    <Compile Include="Management\Interactions\HLApublishObjectClassAttributes.cs" />
+    <Compile Include="Management\Interactions\HLAsubscribeInteractionClass.cs" />
+    <Compile Include="Management\Interactions\HLAsubscribeObjectClassAttributes.cs" />
+    <Compile Include="Management\ManagementObjectModelInteractionListener.cs" />
+    <Compile Include="Management\SxtafederatePropertyHLApendingTime.cs" />
+    <Compile Include="MetaFederation\HLAcreateFederationExecutionMessage.cs" />
+    <Compile Include="MetaFederation\HLAcreateFederationExecutionMessageXrtiSerializer.cs" />
+    <Compile Include="MetaFederation\HLAdestroyFederationExecutionMessage.cs" />
+    <Compile Include="MetaFederation\HLAdestroyFederationExecutionMessageXrtiSerializer.cs" />
+    <Compile Include="Management\HLAfederate.cs" />
+    <Compile Include="Management\HLAfederateHandle.cs" />
+    <Compile Include="Management\HLAfederatePropertyHLAfederateHandle.cs" />
+    <Compile Include="Management\HLAfederatePropertyHLAfederateHost.cs" />
+    <Compile Include="Management\HLAfederatePropertyHLAfederateType.cs" />
+    <Compile Include="Management\SxtafederatePropertyHLAisJoined.cs" />
+    <Compile Include="Management\HLAfederatePropertyHLAlogicalTime.cs" />
+    <Compile Include="Management\HLAfederatePropertyHLAtimeRegulating.cs" />
+    <Compile Include="Management\HLAfederation.cs" />
+    <Compile Include="MetaFederation\HLAfederationExecutionPropertyfederationName.cs" />
+    <Compile Include="MetaFederation\HLAfederationExecutionProxy.cs" />
+    <Compile Include="Management\HLAfederationPropertyHLAautoProvide.cs" />
+    <Compile Include="Management\HLAfederationPropertyHLAconveyRegionDesignatorSets.cs" />
+    <Compile Include="Management\HLAfederationPropertyHLAFDDID.cs" />
+    <Compile Include="Management\HLAfederationPropertyHLAfederatesinFederation.cs" />
+    <Compile Include="Management\HLAfederationPropertyHLAfederationName.cs" />
+    <Compile Include="Management\HLAfederationPropertyHLAlastSaveName.cs" />
+    <Compile Include="Management\HLAfederationPropertyHLAlastSaveTime.cs" />
+    <Compile Include="Management\HLAfederationPropertyHLAnextSaveName.cs" />
+    <Compile Include="Management\HLAfederationPropertyHLAnextSaveTime.cs" />
+    <Compile Include="Management\HLAfederationPropertyHLARTIversion.cs" />
+    <Compile Include="MetaFederation\HLAjoinFederationExecutionMessage.cs" />
+    <Compile Include="MetaFederation\HLAjoinFederationExecutionMessageXrtiSerializer.cs" />
+    <Compile Include="MetaFederation\HLAmetaFederationMessage.cs" />
+    <Compile Include="MetaFederation\HLAmetaFederationMessageXrtiSerializer.cs" />
+    <Compile Include="MetaFederation\HLAmetaFederationProxy.cs" />
+    <Compile Include="Management\IHLAfederate.cs" />
+    <Compile Include="Management\IHLAfederation.cs" />
+    <Compile Include="Management\IHLAfederationExecution.cs" />
+    <Compile Include="Management\IHLAmanager.cs" />
+    <Compile Include="MetaFederation\IHLAmetaFederation.cs" />
+    <Compile Include="MetaFederation\IMetaFederationObjectModelInteractionListener.cs" />
+    <Compile Include="Management\ManagementObjectModelInteractionHelper.cs" />
+    <Compile Include="MetaFederation\MetaFederationExecutiveListener.cs" />
+    <Compile Include="MetaFederation\MetaFederationObjectModelInteractionHelper.cs" />
+    <Compile Include="Management\Sxtafederate.cs" />
+    <Compile Include="Management\SxtaObjectModelInteractionHelper.cs" />
+    <Compile Include="ObjectManagement\IHLACreateObjectRootListener.cs" />
+    <Compile Include="ObjectManagement\IHLAobjectRootListener.cs" />
+    <Compile Include="ObjectManagement\ObjectManager.cs" />
+    <Compile Include="Plugins\AbstractModule.cs" />
+    <Compile Include="Plugins\AbstractPluggableModule.cs" />
+    <Compile Include="Plugins\IPlugableSimulationModule.cs" />
+    <Compile Include="Plugins\DefaultModulePathNode.cs" />
+    <Compile Include="Plugins\DuplicateModuleException.cs" />
+    <Compile Include="Plugins\Extension.cs" />
+    <Compile Include="Plugins\IModule.cs" />
+    <Compile Include="Plugins\IModuleManager.cs" />
+    <Compile Include="Plugins\IModulePath.cs" />
+    <Compile Include="Plugins\IModulePathNode.cs" />
+    <Compile Include="Plugins\IPlugableModule.cs" />
+    <Compile Include="Plugins\IPlugin.cs" />
+    <Compile Include="Plugins\IPluginManager.cs" />
+    <Compile Include="Plugins\ModuleBuilder.cs" />
+    <Compile Include="Plugins\ModuleEventArgs.cs" />
+    <Compile Include="Plugins\ModuleFactory.cs" />
+    <Compile Include="Plugins\ModuleManager.cs" />
+    <Compile Include="Plugins\ModuleNameAttribute.cs" />
+    <Compile Include="Plugins\ModuleNotFoundException.cs" />
+    <Compile Include="Plugins\ModuleReplacementEventArgs.cs" />
+    <Compile Include="Plugins\PathAttribute.cs" />
+    <Compile Include="Plugins\PluggableModuleBuilder.cs" />
+    <Compile Include="Plugins\Plugin.cs" />
+    <Compile Include="Plugins\PluginCollection.cs" />
+    <Compile Include="Plugins\PluginInitializeException.cs" />
+    <Compile Include="Plugins\PluginLoadException.cs" />
+    <Compile Include="Plugins\PluginManager.cs" />
+    <Compile Include="Plugins\PluginSimulator.cs" />
+    <Compile Include="Plugins\TreePathNotFoundException.cs" />
+    <Compile Include="Plugins\XmlMemberArraryAttribute.cs" />
+    <Compile Include="Plugins\XmlMemberAttributeAttribute.cs" />
+    <Compile Include="Plugins\XmlMemberGenericListAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interactions\BaseIteractionMessage.cs" />
+    <Compile Include="Reflection\AOPInterceptor.cs" />
+    <Compile Include="Reflection\AttributeDescriptor.cs" />
+    <Compile Include="Reflection\DescriptorManager.cs" />
+    <Compile Include="Reflection\DimensionDescriptor.cs" />
+    <Compile Include="Reflection\HLAalternative.cs" />
+    <Compile Include="Reflection\HLAArrayDataAttribute.cs" />
+    <Compile Include="Reflection\HLAarrayDataType.cs" />
+    <Compile Include="Reflection\HLAattribute.cs" />
+    <Compile Include="Reflection\HLAAttributeAttribute.cs" />
+    <Compile Include="Reflection\HLABasicData.cs" />
+    <Compile Include="Reflection\HLABasicDataAttribute.cs" />
+    <Compile Include="Reflection\HLAdimension.cs" />
+    <Compile Include="Reflection\HLAendianType.cs" />
+    <Compile Include="Reflection\HLAEnumeratedData.cs" />
+    <Compile Include="Reflection\HLAEnumeratedDataAttribute.cs" />
+    <Compile Include="Reflection\HLAEnumerator.cs" />
+    <Compile Include="Reflection\HLAFixedRecordData.cs" />
+    <Compile Include="Reflection\HLAFixedRecordDataAttribute.cs" />
+    <Compile Include="Reflection\HLAGeneralSchema.cs" />
+    <Compile Include="Reflection\HLAInteractionAttribute.cs" />
+    <Compile Include="Reflection\HLAinteractionClass.cs" />
+    <Compile Include="Reflection\HLAInteractionClassMessageAttribute.cs" />
+    <Compile Include="Reflection\HLAInteractionParameter.cs" />
+    <Compile Include="Reflection\HLAInteractionParameterAttribute.cs" />
+    <Compile Include="Reflection\HLAObjectClass.cs" />
+    <Compile Include="Reflection\HLAObjectClassAttribute.cs" />
+    <Compile Include="Reflection\HLAObjectModel.cs" />
+    <Compile Include="Reflection\HLAObjectModelAttribute.cs" />
+    <Compile Include="Reflection\HLAobjectRoot.cs" />
+    <Compile Include="Reflection\HLAorderType.cs" />
+    <Compile Include="Reflection\HLAownershipType.cs" />
+    <Compile Include="Reflection\HLAProxyAttribute.cs" />
+    <Compile Include="Reflection\HLARecordField.cs" />
+    <Compile Include="Reflection\HLARecordFieldAttribute.cs" />
+    <Compile Include="Reflection\HLAreflection.cs" />
+    <Compile Include="Reflection\HLAReflectionAttribute.cs" />
+    <Compile Include="Reflection\HLAReflectionObject.cs" />
+    <Compile Include="Reflection\HLAsharingType.cs" />
+    <Compile Include="Reflection\HLASimpleData.cs" />
+    <Compile Include="Reflection\HLASimpleDataAttribute.cs" />
+    <Compile Include="Reflection\HLASwitches.cs" />
+    <Compile Include="Reflection\HLASwitchesAttribute.cs" />
+    <Compile Include="Reflection\HLAupdateType.cs" />
+    <Compile Include="Reflection\IHLAattribute.cs" />
+    <Compile Include="Reflection\IHLAobjectRoot.cs" />
+    <Compile Include="Reflection\IHLAreflection.cs" />
+    <Compile Include="Reflection\InteractionClassDescriptor.cs" />
+    <Compile Include="Reflection\ObjectClassDescriptor.cs" />
+    <Compile Include="Reflection\ObjectInstanceDescriptor.cs" />
+    <Compile Include="Reflection\ParameterDescriptor.cs" />
+    <Compile Include="Reflection\ReflectionAssemblyInfo.cs" />
+    <Compile Include="Reflection\RegionDescriptor.cs" />
+    <Compile Include="Resources\Resources.cs" />
+    <Compile Include="Samples\Country.cs" />
+    <Compile Include="Samples\HelloWorldObjectModelInteractionHelper.cs" />
+    <Compile Include="Samples\HelloWorldObjectModelProxyAmbassador.cs" />
+    <Compile Include="Serializers\IteractionMessage\HlaEncodingSerializer.cs" />
+    <Compile Include="BoostrapProtocol\HLAinteractionFragmentMessage.cs" />
+    <Compile Include="Serializers\XrtiEncoding\EncodingHelpers.cs" />
+    <Compile Include="Serializers\XrtiEncoding\HlaEncodingReader.cs" />
+    <Compile Include="Serializers\XrtiEncoding\HlaEncodingWriter.cs" />
+    <Compile Include="Serializers\XrtiEncoding\HlaXrtiBaseSerializer.cs" />
+    <Compile Include="Serializers\XrtiEncoding\IHlaEncodingSerializer.cs" />
+    <Compile Include="Serializers\XrtiEncoding\XrtiSerializerManager.cs" />
+    <Compile Include="Serializers\XrtiText\HlaTextWriter.cs" />
+    <Compile Include="Time\DoubleValuedLogicalTimeIntervalFactory.cs" />
+    <Compile Include="Time\DoubleValuedLogicalTimeFactory.cs" />
+    <Compile Include="Time\DoubleValuedLogicalTimeInterval.cs" />
+    <Compile Include="Time\DoubleValuedLogicalTime.cs" />
+    <Compile Include="Time\LongValuedLogicalTime.cs" />
+    <Compile Include="Time\LongValuedLogicalTimeFactory.cs" />
+    <Compile Include="Time\LongValuedLogicalTimeInterval.cs" />
+    <Compile Include="Time\LongValuedLogicalTimeIntervalFactory.cs" />
+    <Compile Include="Time\OpaqueLogicalTime.cs" />
+    <Compile Include="Time\OpaqueLogicalTimeFactory.cs" />
+    <Compile Include="Time\OpaqueLogicalTimeInterval.cs" />
+    <Compile Include="Time\OpaqueLogicalTimeIntervalFactory.cs" />
+    <Compile Include="Utils\SupportClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\External\Castle.DynamicProxy\Castle.DynamicProxy.csproj">
+      <Project>{70EE6AF2-1F6D-4CC5-A1B2-C3182F035F67}</Project>
+      <Name>Castle.DynamicProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rti1516\Hla.Rti1516.csproj">
+      <Project>{BDCB3D98-377F-4FBC-BE90-79B6AFE3E2BA}</Project>
+      <Name>Hla.Rti1516</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BootstrapObjectModel.xml" />
+    <Content Include="Resources\HelloWorldObjectModel.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Resources\HelloWorldObjectModelEx.xml" />
+    <EmbeddedResource Include="Resources\ManagementObjectModel.xml" />
+    <EmbeddedResource Include="Resources\MetaFederationObjectModel.xml" />
+    <EmbeddedResource Include="Resources\ReflectionObjectModel.xml" />
+    <EmbeddedResource Include="Resources\SxtaObjectModel.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\HLA.dtd" />
+    <EmbeddedResource Include="Resources\HLA.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HLAex.dtd" />
+    <EmbeddedResource Include="Resources\HLAex.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LowLevelManagementObjectModel.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

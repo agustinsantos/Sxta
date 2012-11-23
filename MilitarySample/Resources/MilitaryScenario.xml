@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MilitaryScenario>
+	<ForceStructure>
+		<ForceSides>
+			<ForceSide>
+				<ObjectHandle>1000</ObjectHandle>
+				<ForceSideName>Blue</ForceSideName>
+			</ForceSide>
+			<ForceSide>
+				<ObjectHandle>2000</ObjectHandle>
+				<ForceSideName>Red</ForceSideName>
+			</ForceSide>
+		</ForceSides>
+	</ForceStructure>
+	<TaskOrganizations>
+		<Units>
+			<Unit>
+				<ObjectHandle>1001</ObjectHandle>
+				<ForceRelation>1000</ForceRelation>
+			</Unit>
+			<Unit>
+				<ObjectHandle>1002</ObjectHandle>
+				<ForceRelation>1000</ForceRelation>
+			</Unit>
+			<Unit>
+				<ObjectHandle>1003</ObjectHandle>
+				<ForceRelation>1000</ForceRelation>
+			</Unit>
+			<Unit>
+				<ObjectHandle>2001</ObjectHandle>
+				<ForceRelation>2000</ForceRelation>
+			</Unit>
+			<Unit>
+				<ObjectHandle>2002</ObjectHandle>
+				<ForceRelation>2000</ForceRelation>
+			</Unit>
+			<Unit>
+				<ObjectHandle>2003</ObjectHandle>
+				<ForceRelation>2000</ForceRelation>
+			</Unit>
+		</Units>
+	</TaskOrganizations>
+</MilitaryScenario>
